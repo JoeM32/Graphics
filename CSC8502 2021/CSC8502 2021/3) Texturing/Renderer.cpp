@@ -10,7 +10,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 		return;
 
 	}
-	shader = new Shader("TexturedVertex.glsl", "texturedfragment.glsl");
+	shader = new Shader("TexturedVertex.glsl",  "texturedfragment.glsl");
 
 	if (!shader->LoadSuccess()) {
 		return;
@@ -66,4 +66,9 @@ void Renderer::ToggleFiltering() {
 		filtering ? GL_LINEAR : GL_NEAREST);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
+}
+
+void Renderer::SetBlending(float value)
+{
+	blending = value;
 }

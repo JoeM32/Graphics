@@ -14,6 +14,7 @@ int main() {
 	}
 	float rotate = 0.0f;
 	float scale = 1.0f;
+	float blending = 0.5;
 	while (w.UpdateWindow() &&
 		!Window::GetKeyboard()->KeyDown(KEYBOARD_ESCAPE)) {
 		if (Window::GetKeyboard()->KeyDown(KEYBOARD_LEFT)) {
@@ -44,6 +45,12 @@ int main() {
 			renderer.ToggleRepeating();
 
 		}
+		if (Window::GetKeyboard()->KeyDown(KEYBOARD_O))
+			blending -= 0.05f;
+		if (Window::GetKeyboard()->KeyDown(KEYBOARD_P))
+			blending += 0.05f;
+
+		renderer.SetBlending(blending);
 		renderer.RenderScene();
 		renderer.SwapBuffers();
 

@@ -23,4 +23,5 @@ void Renderer::RenderScene() {
 }
 Renderer ::~Renderer(void) {
 	delete triangle;
-	delete basicShader;}
+	delete basicShader;
+}

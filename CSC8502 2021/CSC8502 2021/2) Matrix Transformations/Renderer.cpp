@@ -21,7 +21,10 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 Renderer ::~Renderer(void) {
 	delete triangle;
 	delete matrixShader;
-	delete camera;}void Renderer::SwitchToPerspective() {
+	delete camera;
+}
+
+void Renderer::SwitchToPerspective() {
 	projMatrix = Matrix4::Perspective(1.0f, 10000.0f,
 		(1/(tan(fov/2.0f))) * ((float)height / (float)width), 45.0f);
 
@@ -30,11 +33,17 @@ Renderer ::~Renderer(void) {
 void Renderer::SwitchToOrthographic() {
 	projMatrix = Matrix4::Orthographic(-1.0f, 10000.0f,
 		width / 2.0f, -width / 2.0f, height / 2.0f, -height / 2.0f);
-}void Renderer::UpdateScene(float dt) {
+
+}
+
+void Renderer::UpdateScene(float dt) {
 	camera -> UpdateCamera(dt);
 	viewMatrix = camera -> BuildViewMatrix();
 	//viewMatrix = viewMatrix * Matrix4::Scale(Vector3(2, 2, 2));
-}void Renderer::RenderScene() {
+
+}
+
+void Renderer::RenderScene() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	BindShader(matrixShader);
@@ -63,4 +72,5 @@ void Renderer::SwitchToOrthographic() {
 		triangle->Draw();
 
 	}
-}
+
+}

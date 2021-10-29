@@ -10,10 +10,14 @@ public:
 
 	void UpdateTextureMatrix(float rotation, float scale);
 	void ToggleRepeating();
-	void ToggleFiltering();protected:
+	void ToggleFiltering();
+
+	void SetBlending(float value);
+protected:
 	Shader* shader;
 	Mesh* triangle;
 	GLuint texture;
 	bool filtering;
 	bool repeating;
-};
+	float blending;
+};

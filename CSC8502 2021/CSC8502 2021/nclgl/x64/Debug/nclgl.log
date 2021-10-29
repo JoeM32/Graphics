@@ -1,1 +1,18 @@
-﻿
+﻿  glad.c
+  Camera.cpp
+  ComputeShader.cpp
+  GameTimer.cpp
+  Keyboard.cpp
+  Matrix2.cpp
+  Matrix3.cpp
+  Matrix4.cpp
+  Mesh.cpp
+  MeshAnimation.cpp
+  MeshMaterial.cpp
+  Mouse.cpp
+  OGLRenderer.cpp
+  Quaternion.cpp
+  Shader.cpp
+  Window.cpp
+  Generating Code...
+  nclgl.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\nclgl.lib
