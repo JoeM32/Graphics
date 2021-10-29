@@ -1,0 +1,19 @@
+﻿  glad.c
+  Camera.cpp
+  ComputeShader.cpp
+  GameTimer.cpp
+  Keyboard.cpp
+  Matrix2.cpp
+  Matrix3.cpp
+  Matrix4.cpp
+  Mesh.cpp
+  MeshAnimation.cpp
+  MeshMaterial.cpp
+  Mouse.cpp
+  OGLRenderer.cpp
+  Quaternion.cpp
+  Shader.cpp
+  Window.cpp
+  Generating Code...
+  H:\Downloads\CSC8502 2021\CSC8502 2021\nclgl\GameTimer.cpp : fatal error C1090: PDB API call failed, error code '3': H:\Downloads\CSC8502 2021\CSC8502 2021\nclgl\Win32\Debug\nclgl.pdb
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(429,5): error MSB6006: "CL.exe" exited with code 1.
