@@ -47,12 +47,9 @@ void Renderer::RenderScene() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	BindShader(matrixShader);
-
 	glUniformMatrix4fv(glGetUniformLocation(matrixShader -> GetProgram()
 		, "projMatrix"), 1, false, projMatrix.values);
 
-	glUniformMatrix4fv(glGetUniformLocation(matrixShader -> GetProgram()
-		, "viewMatrix"), 1, false, viewMatrix.values);
 
 	for (int i = 0; i < 3; ++i) {
 		Vector3 tempPos = position;

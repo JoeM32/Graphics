@@ -24,4 +24,6 @@ protected:
 	float scale;
 	float rotation;
 	Vector3 position;
-	float fov = 90.0f;	Camera* camera;};
+	float fov = 90.0f;
+	Camera* camera;
+};

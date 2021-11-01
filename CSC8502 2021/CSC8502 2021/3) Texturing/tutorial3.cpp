@@ -1,5 +1,6 @@
 #include "../nclgl/window.h"
 #include "Renderer.h"
+#include <algorithm>
 
 int main() {
 	Window w("Texture Mapping!", 800, 600, false);
@@ -50,7 +51,8 @@ int main() {
 		if (Window::GetKeyboard()->KeyDown(KEYBOARD_P))
 			blending += 0.05f;
 
-		renderer.SetBlending(blending);
+		renderer.SetBlending(std::clamp(blending,0.0f,1.0f));
+		renderer.UpdateScene(w.GetTimer()->GetTimeDeltaSeconds());
 		renderer.RenderScene();
 		renderer.SwapBuffers();
 

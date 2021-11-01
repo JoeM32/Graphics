@@ -1,17 +1,15 @@
 #version 330 core
-uniform mat4 modelMatrix ;
-uniform mat4 viewMatrix ;
-uniform mat4 projMatrix ;
-uniform mat4 textureMatrix ;
+uniform sampler2D diffuseTex ;
+uniform sampler2D diffuseTex2 ;
+uniform float blending;
 
-in vec3 position ;
-in vec2 texCoord ;
+in Vertex {
+	noperspective vec2 texCoord ;
+	noperspective vec4 colour;
+} IN ;
 
-out Vertex {
-	vec2 texCoord ;
-} OUT ;
+out vec4 fragColour ;
 void main ( void ) {
-	mat4 mvp = projMatrix * viewMatrix * modelMatrix ;
-	gl_Position = mvp * vec4 ( position , 1.0);
-	OUT.texCoord = ( textureMatrix * vec4 (texCoord , 0.0 , 1.0)).xy;
+	fragColour = mix(texture ( diffuseTex2 , IN.texCoord ),texture ( diffuseTex , IN.texCoord ),0.5);
+	fragColour = mix(IN.colour,fragColour,blending);
 }
