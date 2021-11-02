@@ -18,8 +18,13 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	SetTextureRepeating(textures[0], true);
 	SetTextureRepeating(textures[1], true);
 
-	shader = new Shader("TexturedVertex.glsl", "StencilFragment.glsl");
-	if (!shader->LoadSuccess()) {
+	shader[0] = new Shader("TexturedVertex.glsl", "StencilFragment.glsl");
+	if (!shader[0]->LoadSuccess()) {
+		return;
+
+	}
+	shader[1] = new Shader("TexturedVertex.glsl", "StencilFragment2.glsl");
+	if (!shader[1]->LoadSuccess()) {
 		return;
 
 	}
@@ -32,8 +37,8 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 Renderer ::~Renderer(void) {
 	delete meshes[0];
 	delete meshes[1];
-	delete shader;
-
+	delete shader[0];
+	delete shader[1];
 }
 
 void Renderer::ToggleScissor() {
@@ -54,12 +59,12 @@ void Renderer::ToggleScissor() {
 
 	 }
 
-	 BindShader(shader);
+	 BindShader(shader[0]);
 
 	 textureMatrix = Matrix4::Scale(Vector3(6, 6, 6));
 	 UpdateShaderMatrices();
 
-	 glUniform1i(glGetUniformLocation(shader->GetProgram(),
+	 glUniform1i(glGetUniformLocation(shader[0]->GetProgram(),
 		 "diffuseTex"), 0);	 if (usingStencil) {
 		 glEnable(GL_STENCIL_TEST);
 
@@ -73,7 +78,10 @@ void Renderer::ToggleScissor() {
 		 glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 		 glStencilFunc(GL_EQUAL, 2, ~0);
 		 glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-	 }	 glBindTexture(GL_TEXTURE_2D, textures[0]);
+	 }	 BindShader(shader[1]);	 textureMatrix = Matrix4::Scale(Vector3(6, 6, 6));
+	 UpdateShaderMatrices();	 glUniform1i(glGetUniformLocation(shader[1]->GetProgram(),
+		 "diffuseTex"), 0);	 glBindTexture(GL_TEXTURE_2D, textures[0]);
+
 	 meshes[0]->Draw();
 	 glDisable(GL_SCISSOR_TEST);
 	 glDisable(GL_STENCIL_TEST);

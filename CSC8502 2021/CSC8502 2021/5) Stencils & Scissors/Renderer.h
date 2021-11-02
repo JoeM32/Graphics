@@ -12,7 +12,7 @@ public:
 	void ToggleStencil();
 
 protected:
-	Shader* shader;
+	Shader* shader[2];
 	Mesh* meshes[2];
 	GLuint textures[2];
 
