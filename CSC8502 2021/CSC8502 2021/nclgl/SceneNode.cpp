@@ -10,6 +10,10 @@ SceneNode::SceneNode(Mesh* mesh, Vector4 colour) {
 	 this->shader = NULL;
 	 modelScale = Vector3(1, 1, 1);
 	
+	 //tutorial 7
+	 boundingRadius = 1.0f;
+	 distanceFromCamera = 0.0f;
+	 texture = 0;
 }
 
 SceneNode ::~SceneNode(void) {

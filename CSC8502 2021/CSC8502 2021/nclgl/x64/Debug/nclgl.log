@@ -1,2 +1,6 @@
-﻿  SceneNode.cpp
+﻿  CubeRobot.cpp
+  Frustrum.cpp
+  Plane.cpp
+  SceneNode.cpp
+  Generating Code...
   nclgl.vcxproj -> H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\nclgl.lib

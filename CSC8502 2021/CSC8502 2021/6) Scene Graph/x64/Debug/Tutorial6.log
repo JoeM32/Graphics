@@ -1,3 +1,5 @@
 ﻿  Renderer.cpp
+  Tutorial6.cpp
+  Generating Code...
 H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\6) Scene Graph\Renderer.cpp(25,58): warning C4244:  'argument': conversion from 'int' to 'const float', possible loss of data
   Tutorial6.vcxproj -> H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Tutorial 06 - Scene Graph.exe
