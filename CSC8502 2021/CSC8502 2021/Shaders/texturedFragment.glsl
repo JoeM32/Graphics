@@ -8,8 +8,4 @@ in Vertex {
 out vec4 fragColour ;
 void main ( void ) {
 	fragColour = texture ( diffuseTex , IN.texCoord );
-	if(fragColour.r < 0.5)
-	{
-		discard;
-	}
 }

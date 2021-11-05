@@ -6,7 +6,7 @@ Renderer :: Renderer(Window &parent) : OGLRenderer(parent) {
     camera           = new  Camera (-40,270, Vector3 ());
     Vector3  dimensions = heightMap ->GetHeightmapSize ();
     camera ->SetPosition(dimensions * Vector3 (0.5, 2, 0.5));
-    shader    = new  Shader("TexturedVertex.glsl","texturedFragment.glsl");
+    shader    = new  Shader("HeightVertex.glsl","HeightFragment.glsl");
     if(!shader ->LoadSuccess ()) {
         return;
     }
@@ -46,4 +46,5 @@ void  Renderer::RenderScene() {
     glActiveTexture(GL_TEXTURE0); 
     glBindTexture(GL_TEXTURE_2D, terrainTex); 
     heightMap->Draw(); 
+
 }
