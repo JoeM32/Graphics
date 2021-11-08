@@ -38,5 +38,5 @@ protected:
 	float roll = 0;
 	Vector3 position; // Set to 0 ,0 ,0 by Vector3 constructor ;)
 
-	float speed = 600.0f;
+	float speed = 6.0f;
 };

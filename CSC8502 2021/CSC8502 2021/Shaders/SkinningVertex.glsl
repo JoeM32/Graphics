@@ -12,6 +12,7 @@ in ivec4 jointIndices ;
 uniform mat4 joints [128];
 
 out Vertex {
+	vec4 color;
 	vec2 texCoord ;
 } OUT ;
 
@@ -27,5 +28,6 @@ void main ( void ) {
 	}
 	mat4 mvp = projMatrix * viewMatrix * modelMatrix ;
 	gl_Position = mvp * vec4 ( skelPos.xyz , 1.0);
+	OUT.color = jointWeights;
 	OUT.texCoord = texCoord ;
 }

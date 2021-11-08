@@ -12,7 +12,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 		(float)width / (float)height, 45.0f);
 	camera = new Camera(-3, 0.0f, Vector3(0, 1.4f, 4.0f));
 
-	shader = new Shader("SkinningVertex.glsl", "texturedFragment.glsl");
+	shader = new Shader("SkinningVertex.glsl", "SkinnedFragment.glsl");
 
 	if (!shader->LoadSuccess()) {
 		return;
