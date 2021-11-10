@@ -3,7 +3,9 @@
 uniform sampler2D sceneTex ;
 uniform sampler2D sceneTex2 ;
 
+in vec2 resolution;
 
+in vec4 gl_FragCoord;
 
 in Vertex {
 	vec2 texCoord ;
@@ -13,7 +15,11 @@ out vec4 fragColor ;
 
 
 void main ( void ) {
-
-	
-	fragColor = mix(texture2D( sceneTex , IN.texCoord.xy), texture2D( sceneTex2 , IN.texCoord.xy),0.5);
+	float a = 0;
+	fragColor = vec4(0,0,0,1);
+	if((gl_FragCoord.x/1280) > 0.5)
+	{
+		a = 1;
+	}
+	fragColor = mix(texture2D( sceneTex , IN.texCoord.xy), texture2D( sceneTex2 , IN.texCoord.xy), a);
 }

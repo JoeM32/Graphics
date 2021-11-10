@@ -21,7 +21,9 @@ protected:
 	Shader* sceneShader;
 	Shader* processShader;
 
-	Camera* camera;
+	Camera* camera1;
+	Camera* camera2;
+
 
 	Mesh* quad;
 	HeightMap* heightMap;

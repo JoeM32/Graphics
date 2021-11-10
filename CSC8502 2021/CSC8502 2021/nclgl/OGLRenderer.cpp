@@ -217,6 +217,68 @@ void OGLRenderer::BindShader(Shader*s) {
 	glUseProgram(s->GetProgram());
 }
 
+void OGLRenderer::SetShaderLights(Light* l) {
+	
+	float values[16];
+	/*glUniform3fv(glGetUniformLocation(currentShader->GetProgram(),
+		"lightPos"), 1, (float*)& l.GetPosition());
+
+	glUniform4fv(glGetUniformLocation(currentShader->GetProgram(),
+		"lightColour"), 1, (float*)& l.GetColour());
+
+	glUniform4fv(glGetUniformLocation(currentShader->GetProgram(),
+		"lightColourSpecular"), 1, (float*)& l.GetColourSpecular());
+
+	glUniform1f(glGetUniformLocation(currentShader->GetProgram(),
+		"lightRadius"), l.GetRadius());*/
+
+	for (int i = 0; i < 4; i++)
+	{
+		values[i * 3] = l[i].GetPosition().x;
+		//std::cout << std::to_string(l[i].GetPosition().x) << "\n";
+		values[i * 3 + 1] = l[i].GetPosition().y;
+		//std::cout << std::to_string(l[i].GetPosition().y) << "\n";
+		values[i * 3 + 2] = l[i].GetPosition().z;
+		//std::cout << std::to_string(l[i].GetPosition().z) << "\n";
+	}
+	/*std::cout << "values" << "\n";
+	for each (auto var in values)
+	{
+		std::cout << std::to_string(var) << "\n";
+	}
+	*/
+	glUniform3fv(glGetUniformLocation(currentShader->GetProgram(), "lightPos") , 4,
+		(float*)values);	for (int i = 0; i < 4; i++)
+	{
+		values[i * 4] = l[i].GetColour().x;
+		values[i * 4 + 1] = l[i].GetColour().y;
+		values[i * 4 + 2] = l[i].GetColour().z;
+		values[i * 4 + 3] = l[i].GetColour().w;
+	}	glUniform4fv(glGetUniformLocation(currentShader->GetProgram(), "lightColour"), 4,
+		(float*)values);	std::cout << "rough values" << "\n";	for (int i = 0; i < 4; i++)
+	{
+		values[i * 4] = l[i].GetColourSpecular().x;
+		std::cout << std::to_string(l[i].GetColourSpecular().x) << "\n";
+		values[i * 4 + 1] = l[i].GetColourSpecular().y;
+		std::cout << std::to_string(l[i].GetColourSpecular().y) << "\n";
+		values[i * 4 + 2] = l[i].GetColourSpecular().z;
+		std::cout << std::to_string(l[i].GetColourSpecular().z) << "\n";
+		values[i * 4 + 3] = l[i].GetColourSpecular().w;
+		std::cout << std::to_string(l[i].GetColourSpecular().w) << "\n";
+	}	std::cout << "values" << "\n";
+	for each (float var in values)
+	{
+		std::cout << std::to_string(var) << "\n";
+	}
+		glUniform4fv(glGetUniformLocation(currentShader->GetProgram(), "lightColourSpecular"), 4,
+		(float*)values);	for (int i = 0; i < 4; i++)
+	{
+		values[i] = l[i].GetRadius();
+	}	glUniform1fv(glGetUniformLocation(currentShader->GetProgram(), "lightRadius"), 4,
+		(float*)values);
+
+}
+
 void OGLRenderer::SetTextureRepeating(GLuint target, bool repeating) {
 	glBindTexture(GL_TEXTURE_2D, target);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,

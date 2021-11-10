@@ -1,8 +1,12 @@
 #include "Renderer.h"
 const int POST_PASSES = 10;
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
-	camera = new Camera(-25.0f, 225.0f,
+	//windowSize = parent.GetScreenSize();
+	camera1 = new Camera(-25.0f, 225.0f,
 		Vector3(-150.0f, 250.0f, -150.0f));
+	camera2 = new Camera(-25.0f, 225.0f,
+		Vector3(-150.0f, 250.0f, -150.0f));
+	camera2->SetPosition(camera2->GetPosition() - Vector3(0, 0, 100));
 	quad = Mesh::GenerateQuad();
 
 	heightMap = new HeightMap(TEXTUREDIR "noise.png");
@@ -74,7 +78,8 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	delete processShader;
 	delete heightMap;
 	delete quad;
-	delete camera;
+	delete camera1;
+	delete camera2;
 
 	glDeleteTextures(3, bufferColourTex);
 	glDeleteTextures(1, &bufferDepthTex);
@@ -82,9 +87,8 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	glDeleteFramebuffers(1, &bufferFBO2);
 	glDeleteFramebuffers(1, &processFBO);
 }void Renderer::UpdateScene(float dt) {
-	camera->UpdateCamera(dt);
-	viewMatrix = camera->BuildViewMatrix();
-
+	camera1->UpdateCamera(dt);
+	viewMatrix = camera1->BuildViewMatrix();
 }
 
 void Renderer::RenderScene() {
@@ -116,13 +120,9 @@ void Renderer::DrawScene() {
 	BindShader(sceneShader);
 	projMatrix = Matrix4::Perspective(1.0f, 10000.0f,
 		(float)width / (float)height, 45.0f);
-	//change viewmatrix
-	auto a = camera->GetPosition();
-	Matrix4 rotation = Matrix4::Rotation(camera->GetYaw(), Vector3(0, 1, 0));
-	Vector3 right = rotation * Vector3(1, 0, 0);
-	camera->SetPosition(a + (right * 10));
-	viewMatrix = camera->BuildViewMatrix();
-	camera->SetPosition(a);
+	
+	viewMatrix = camera2->BuildViewMatrix();
+
 	UpdateShaderMatrices();
 	glUniform1i(glGetUniformLocation(
 		sceneShader->GetProgram(), "diffuseTex"), 0);
@@ -194,7 +194,7 @@ void Renderer::DrawPostProcess2() {
 
 		quad->Draw();
 	}
-
+	
 
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

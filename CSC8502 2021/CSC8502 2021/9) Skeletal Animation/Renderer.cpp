@@ -72,7 +72,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	int j = glGetUniformLocation(shader->GetProgram(), "joints");
 	glUniformMatrix4fv(j, frameMatrices.size(), false,
-		(float*)frameMatrices.data());	for (int i = 0; i < mesh->GetSubMeshCount(); ++i) {
+		(float*)frameMatrices.data());	for (int i = 0; i < mesh->GetSubMeshCount(); ++i) {
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, matTextures[i]);
 		mesh->DrawSubMesh(i);
