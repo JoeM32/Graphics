@@ -19,6 +19,6 @@ protected:
 	HeightMap* heightMap;
 	Shader* shader;
 	Camera* camera;
-	Light* lights[4]; //A new thing !
+	Light* light; //A new thing !
 	GLuint texture;
 };

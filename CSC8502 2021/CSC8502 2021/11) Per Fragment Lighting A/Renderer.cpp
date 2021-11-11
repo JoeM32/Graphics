@@ -19,23 +19,9 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent)
 	SetTextureRepeating(texture, true);	Vector3 heightmapSize = heightMap->GetHeightmapSize();
 	camera = new Camera(-45.0f, 0.0f,
 		heightmapSize * Vector3(0.5f, 5.0f, 0.5f));
-	for (int i = 0; i < 4; i++)
-	{
-		lights[i] = new Light(heightmapSize * Vector3((i+1) * 0.5f, 1.5f, (3- i) * 0.5f),
-			Vector4(1, 1, 1, 1), Vector4(0, 1, 0, 1), heightmapSize.x * 0.2f);
-	}
-
-	std::cout << "rough values11111111" << "\n";	for (int i = 0; i < 4; i++)
-	{
-
-		std::cout << std::to_string(lights[i]->GetColourSpecular().x) << "\n";
-
-		std::cout << std::to_string(lights[i]->GetColourSpecular().y) << "\n";
-
-		std::cout << std::to_string(lights[i]->GetColourSpecular().z) << "\n";
-
-		std::cout << std::to_string(lights[i]->GetColourSpecular().w) << "\n";
-	}
+	
+	light = new Light(heightmapSize * Vector3(0.5f, 1.5f, 0.5f), Vector3(0,-1,-1),
+		 Vector4(1, 1, 1, 1), Vector4(0, 0, 1, 1), heightmapSize.x/5.0f, 10.0f);
 
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f);
@@ -48,10 +34,7 @@ Renderer ::~Renderer(void) {
 	 delete camera;
 	 delete heightMap;
 	 delete shader;
-	 for (int i = 0; i < 4; i++)
-	 {
-		 delete lights[i]; // This bit is new ...
-	 }
+	 delete light;
 	
 }
 
@@ -70,7 +53,7 @@ void Renderer::UpdateScene(float dt) {
 		"cameraPos"), 1, (float*)& camera->GetPosition());
 
 	UpdateShaderMatrices();
-	SetShaderLights(*lights);
+	SetShaderLight(*light);
 
 	heightMap->Draw();
 
