@@ -15,6 +15,7 @@ protected:
 	void DrawHeightmap();
 	void DrawWater();
 	void DrawSkybox();
+	void DrawMirror();
 
 	Shader* lightShader;
 	Shader* reflectShader;
@@ -28,6 +29,7 @@ protected:
 
 	GLuint cubeMap;
 	GLuint waterTex;
+	GLuint waterBump;
 	GLuint earthTex;
 	GLuint earthBump;
 
