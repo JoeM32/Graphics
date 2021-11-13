@@ -15,7 +15,7 @@ protected:
 	void DrawShadowScene();
 	void DrawMainScene();
 
-	GLuint shadowTex;
+	GLuint shadowTex[2];
 	GLuint shadowFBO;
 	GLuint sceneDiffuse;
 	GLuint sceneBump;
@@ -28,4 +28,5 @@ protected:
 
 	Camera* camera;
 	Light* light;
+	Light* light2;
 };
