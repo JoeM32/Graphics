@@ -2,25 +2,26 @@
 #include "../nclgl/HeightMap.h"
 #include "../nclgl/Camera.h"
 #include "../nclgl/Light.h"
+
 const int LIGHT_NUM = 32;
 
 Renderer::Renderer(Window & parent) : OGLRenderer(parent) {
 	sphere = Mesh::LoadFromMeshFile("Sphere.msh");
 	quad = Mesh::GenerateQuad();
-	heightMap = new HeightMap(TEXTUREDIR "noise.png");
+	heightMap1 = new  HeightMap(TEXTUREDIR"noise.png");
 	
 	earthTex = SOIL_load_OGL_texture(
-	TEXTUREDIR "Barren Reds.jpg", SOIL_LOAD_AUTO,
+	TEXTUREDIR"Barren Reds.jpg", SOIL_LOAD_AUTO,
 	SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	
 	earthBump = SOIL_load_OGL_texture(
-	TEXTUREDIR "Barren RedsDOT3.jpg", SOIL_LOAD_AUTO,
+	TEXTUREDIR"Barren RedsDOT3.jpg", SOIL_LOAD_AUTO,
 	SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	
 	SetTextureRepeating(earthTex, true);
 	SetTextureRepeating(earthBump, true);
 	
-	Vector3 heightmapSize = heightMap -> GetHeightmapSize();
+	Vector3 heightmapSize = heightMap1->GetHeightmapSize();
 	
 	camera = new Camera(-45.0f, 0.0f,
 	heightmapSize * Vector3(0.5f, 5.0f, 0.5f));	pointLights = new Light[LIGHT_NUM];
@@ -98,11 +99,11 @@ Renderer::Renderer(Window & parent) : OGLRenderer(parent) {
 	
 		 init = true;
 	}Renderer ::~Renderer(void) {
-	 delete sceneShader;
+	delete sceneShader;
 	delete combineShader;
 	delete pointlightShader;
-	
-	delete heightMap;
+
+	delete heightMap1;
 	delete camera;
 	delete sphere;
 	delete quad;
@@ -112,11 +113,12 @@ Renderer::Renderer(Window & parent) : OGLRenderer(parent) {
 	glDeleteTextures(1, &bufferDepthTex);
 	glDeleteTextures(1, &lightDiffuseTex);
 	glDeleteTextures(1, &lightSpecularTex);
-	
+
 	glDeleteFramebuffers(1, &bufferFBO);
 	glDeleteFramebuffers(1, &pointLightFBO);
-	
+
 }
+
 void Renderer::GenerateScreenTexture(GLuint& into, bool depth) {
 	glGenTextures(1, &into);
 	glBindTexture(GL_TEXTURE_2D, into);
@@ -163,7 +165,7 @@ void Renderer::GenerateScreenTexture(GLuint& into, bool depth) {
 	
 	UpdateShaderMatrices();
 	
-	heightMap -> Draw();
+	heightMap1->Draw();
 	
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}void Renderer::DrawPointLights() {

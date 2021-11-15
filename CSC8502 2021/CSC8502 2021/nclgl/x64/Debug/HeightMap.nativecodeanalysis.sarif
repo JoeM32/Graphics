@@ -1,0 +1,2999 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'InputDevice::rid' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/InputDevice.h"
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 2,
+                  "endLine": 43,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0InputDevice@@IEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "InputDevice::rid"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Light::angle' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Light.h"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 2,
+                  "endLine": 8,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Light@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Light::angle"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Light::radius' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Light.h"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 2,
+                  "endLine": 8,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Light@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Light::radius"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Variable 'Light::angle' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Light.h"
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 2,
+                  "endLine": 19,
+                  "endColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0Light@@QEAA@AEBVVector3@@AEBVVector4@@M@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "Light::angle"
+          }
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "Buffer overrun while writing to 'this->vertices':  the writable size is '(unsigned __int64 size_t)*12' bytes, but '24' bytes might be written."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 13,
+                  "endLine": 21,
+                  "endColumn": 62
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0HeightMap@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 3,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 5,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 7,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume '!data' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 11,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 12,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 13,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 14,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 16,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 17,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'z<iHeight')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'x<iWidth')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 20,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 39
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 60
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 44
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Exit this loop, ('x<iWidth' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Continue this loop, (assume 'z<iHeight')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'x<iWidth')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 20,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "'offset' may equal 1"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "'offset' is an In/Out argument to 'Vector3::{ctor}' (declared at c:\\users\\joemi\\documents\\github\\graphics\\csc8502 2021\\csc8502 2021\\nclgl\\vector3.h:23)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "Invalid write to 'this->vertices[1]', (writable range is 0 to 0)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "Buffer overrun while writing to 'this->textureCoords':  the writable size is '(unsigned __int64 size_t)*8' bytes, but '16' bytes might be written."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 13,
+                  "endLine": 22,
+                  "endColumn": 53
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0HeightMap@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 3,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 5,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 7,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume '!data' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 11,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 12,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 13,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 14,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 16,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 17,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'z<iHeight')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'x<iWidth')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 20,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 39
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 60
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 44
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Exit this loop, ('x<iWidth' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Continue this loop, (assume 'z<iHeight')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'x<iWidth')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 20,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "'offset' may equal 1"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "'offset' is an In/Out argument to 'Vector3::{ctor}' (declared at c:\\users\\joemi\\documents\\github\\graphics\\csc8502 2021\\csc8502 2021\\nclgl\\vector3.h:23)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 39
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 60
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        },
+                        "message": {
+                          "text": "Invalid write to 'this->textureCoords[1]', (writable range is 0 to 0)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6386",
+          "message": {
+            "text": "Buffer overrun while writing to 'this->indices':  the writable size is 'this->numIndices*4' bytes, but '28' bytes might be written."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 13,
+                  "endLine": 33,
+                  "endColumn": 28
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0HeightMap@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 3,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 4,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 5,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 7,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this branch, (assume '!data' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 11,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 12,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 13,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 14,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 15,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 16,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 17,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume 'z<iHeight' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Skip this loop, (assume 'x<iWidth' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 20,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 39
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 60
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 44
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 20,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 39
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 60
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 21,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 44
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 51
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 22,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'z<iHeight')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 19,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 18,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Continue this loop, (assume 'z<iHeight')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 25,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 26,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 27,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 27,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'z<iHeight-1')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'x<iWidth-1')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 29,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 30,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 31,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 32,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 33,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 34,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 35,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 36,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 37,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 38,
+                            "startColumn": 26
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 41
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Exit this loop, ('x<iWidth-1' is false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 27,
+                            "startColumn": 38
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 27,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "Continue this loop, (assume 'z<iHeight-1')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 28,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'x<iWidth-1')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 29,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 30,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 31,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 32,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 33,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "'i' may equal 1"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+                          },
+                          "region": {
+                            "startLine": 33,
+                            "startColumn": 26
+                          }
+                        },
+                        "message": {
+                          "text": "Invalid write to 'this->indices[6]', (writable range is 0 to 5)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30133.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x006EC1B0 -il C:\\Users\\joemi\\AppData\\Local\\Temp\\_CL_6f5930c1ast -typedil -f HeightMap.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930133 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -nologo -W 3 -diagnostics:column -Ot -DCODE_ANALYSIS -D_MBCS -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -Zc:wchar_t -Zc:forScope -Fox64\\Debug\\HeightMap.obj -FdC:\\Users\\joemi\\Documents\\GitHub\\Graphics\\CSC8502 2021\\CSC8502 2021\\x64\\Debug\\nclgl.pdb -external:W 3 -Gd -analyze:projectdirectory C:\\Users\\joemi\\Documents\\GitHub\\Graphics\\CSC8502 2021\\CSC8502 2021\\nclgl -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Users\\joemi\\Documents\\GitHub\\Graphics\\CSC8502 2021\\CSC8502 2021\\Third Party\\ -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\ucrt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\winrt -I C:\\Users\\joemi\\Documents\\GitHub\\Graphics\\CSC8502 2021\\CSC8502 2021\\nclgl\\Include\\um -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\ucrt -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\UnitTest\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\winrt -external:I C:\\Users\\joemi\\Documents\\GitHub\\Graphics\\CSC8502 2021\\CSC8502 2021\\nclgl\\Include\\um -I C:\\Users\\joemi\\Documents\\GitHub\\Graphics\\CSC8502 2021\\CSC8502 2021\\nclgl\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/InputDevice.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "d0982e2020e752db4ddd1153b5fc4387"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Light.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "79b3719f2f0b0d630bdb262af1f828f4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/shader.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "49b844d6caf4fddcab93110cc18a333b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/shader.h"
+          },
+          "hashes": {
+            "md5": "87244432d72f9c251b573548988fc74e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/oglrenderer.h"
+          },
+          "hashes": {
+            "md5": "b739d34952a1c5a84c411ac6e79d0d49"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/common.h"
+          },
+          "hashes": {
+            "md5": "0547a0c4f1eb9c49301997c1f20fd330"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/third party/khr/khrplatform.h"
+          },
+          "hashes": {
+            "md5": "b17f66c1be779bdb02ecccff7d294a91"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/third party/glad/glad.h"
+          },
+          "hashes": {
+            "md5": "4c57b0392715839d4ddeb1de355f4f99"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/third party/khr/wglext.h"
+          },
+          "hashes": {
+            "md5": "60538db8c551d457e717960e7104713c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/third party/soil/soil.h"
+          },
+          "hashes": {
+            "md5": "1b05d10a473b3df87353e356f829472d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/vector4.h"
+          },
+          "hashes": {
+            "md5": "aa64184d55401363804df2ce4c6add1b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/vector3.h"
+          },
+          "hashes": {
+            "md5": "514c2efd7290fd0fbb4a21b8ce4a0aaf"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/vector2.h"
+          },
+          "hashes": {
+            "md5": "dd7f9462fbab87ca41c448fb1100f10a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/quaternion.h"
+          },
+          "hashes": {
+            "md5": "495a7c44eca7568b09ac24574be3d480"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/matrix4.h"
+          },
+          "hashes": {
+            "md5": "08d00527e6c65a38dfda9b1812abaec1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/window.h"
+          },
+          "hashes": {
+            "md5": "2debdbe18f97324e97e9141ffd805c55"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/keyboard.h"
+          },
+          "hashes": {
+            "md5": "bbe45cd84e3a558fa7e4423fb67880a3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/mouse.h"
+          },
+          "hashes": {
+            "md5": "fdaf38c8218bb1d8865be90eb6cbcf4e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/gametimer.h"
+          },
+          "hashes": {
+            "md5": "bef98be33d821a1cb1d279e17e34b70c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/mesh.h"
+          },
+          "hashes": {
+            "md5": "5e682e65836ae976b34a319f1b3c7304"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/scenenode.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "1f9e1202ee21083b21f760f7792272a7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/scenenode.h"
+          },
+          "hashes": {
+            "md5": "47b5c34be1885aada804540546a864c6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/quaternion.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "c1b969a94b4fc2544732e0504178bd0d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/matrix3.h"
+          },
+          "hashes": {
+            "md5": "7e167cdecbb5c02173b6d7c79487cd67"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Plane.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "866ad78a3248664d9f60e463163d5ef7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/plane.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "de6f3dd52156361e469d1ebdfa108327"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/OGLRenderer.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "7538833b69b24d9a3ac8a0ed21bb5a38"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Mouse.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "d87682b1b25a4d4e4bbda801a926a01c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/meshmaterial.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "3bd157a414753b63472d519d931a3879"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/meshmaterial.h"
+          },
+          "hashes": {
+            "md5": "c819237720b602467d0c50f85126af66"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/MeshAnimation.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "85f81414eaea4136d607fc3020274c4c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/meshanimation.h"
+          },
+          "hashes": {
+            "md5": "004f182e71f3e8aa99673b1a5fabf981"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Matrix2.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "34e53ba8e976c3c97593c58c501161fb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Mesh.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "105dbb8cb1d6436da238ac1abce1d349"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/matrix4.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "eb682b0ea8b20f9bb5b908840b2aa7b0"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Matrix3.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "33eb0f40a9c2615d64b5fa5dac01c6dd"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/matrix2.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "375a3cb5f6b5eaba5ec6947a176cf491"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/light.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "112b25e0a87f1c94996a2a9bb2b964fb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/Keyboard.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "94eb80bd03820d1e103ee908d8e2bbb6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/joemi/Documents/GitHub/Graphics/CSC8502 2021/CSC8502 2021/nclgl/HeightMap.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "2bc0c77b8c9f0f2cc9734f03c5542cda"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/joemi/documents/github/graphics/csc8502 2021/csc8502 2021/nclgl/heightmap.h"
+          },
+          "hashes": {
+            "md5": "f4884cb5bb614b37b971ce8e097e8714"
+          }
+        }
+      ]
+    }
+  ]
+}

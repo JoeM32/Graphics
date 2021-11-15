@@ -1,8 +1,9 @@
-# pragma once
+#pragma once
 #include "../nclgl/OGLRenderer.h"
 class Camera;
 class Mesh;
 class HeightMap;
+
 class Renderer : public OGLRenderer {
 public:
  Renderer(Window & parent);
@@ -27,7 +28,7 @@ public:
 	GLuint bufferDepthTex; // Depth goes here
 	GLuint pointLightFBO; // FBO for our lighting pass
 	GLuint lightDiffuseTex; // Store diffuse lighting
-	GLuint lightSpecularTex; // Store specular lighting	HeightMap* heightMap; // Terrain !
+	GLuint lightSpecularTex; // Store specular lighting	HeightMap * heightMap1; // Terrain !
 	Light * pointLights; // Array of lighting data
 	Mesh * sphere; // Light volume
 	Mesh * quad; // To draw a full - screen quad

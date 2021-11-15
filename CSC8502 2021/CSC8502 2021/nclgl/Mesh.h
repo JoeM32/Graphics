@@ -17,10 +17,9 @@ _-_-_-_-_-_-_-""  ""
 *//////////////////////////////////////////////////////////////////////////////
 
 #pragma once
-
-#include "OGLRenderer.h"
 #include <vector>
 #include <string>
+#include "OGLRenderer.h"
 
 //A handy enumerator, to determine which member of the bufferObject array
 //holds which data
