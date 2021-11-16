@@ -13,6 +13,8 @@ public:
  void UpdateScene(float dt) override;
 
  protected:
+
+	 HeightMap* heightMap;
  void FillBuffers(); //G- Buffer Fill Render Pass
 	void DrawPointLights(); // Lighting Render Pass
 	void CombineBuffers(); // Combination Render Pass
@@ -28,7 +30,7 @@ public:
 	GLuint bufferDepthTex; // Depth goes here
 	GLuint pointLightFBO; // FBO for our lighting pass
 	GLuint lightDiffuseTex; // Store diffuse lighting
-	GLuint lightSpecularTex; // Store specular lighting	HeightMap * heightMap1; // Terrain !
+	GLuint lightSpecularTex; // Store specular lighting	//HeightMap * heightMap; // Terrain !
 	Light * pointLights; // Array of lighting data
 	Mesh * sphere; // Light volume
 	Mesh * quad; // To draw a full - screen quad

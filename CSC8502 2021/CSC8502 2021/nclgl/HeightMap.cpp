@@ -1,5 +1,5 @@
 #include "HeightMap.h"
-HeightMap :: HeightMap(const  std:: string& name) {
+HeightMap::HeightMap(const  std:: string& name) {
     int  iWidth , iHeight , iChans;
     unsigned  char* data = SOIL_load_image(name.c_str(),
         &iWidth , &iHeight , &iChans , 1);

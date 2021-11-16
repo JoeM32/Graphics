@@ -1,8 +1,1 @@
-﻿  Renderer.cpp
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(11,2): error C2065: 'heightMap1': undeclared identifier
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(24,26): error C2065: 'heightMap1': undeclared identifier
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(33,9): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(31,31): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(106,9): error C2065: 'heightMap1': undeclared identifier
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(106,19): error C2541: 'delete': cannot delete objects that are not pointers
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(168,2): error C2065: 'heightMap1': undeclared identifier
+﻿  Tutorial15.vcxproj -> H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Tutorial 15 - Deferred Shading.exe
