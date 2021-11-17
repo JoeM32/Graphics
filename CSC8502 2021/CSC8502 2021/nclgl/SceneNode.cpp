@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <vector>
 
-SceneNode::SceneNode(Mesh* mesh, Vector4 colour) {
+SceneNode::SceneNode(std::string name, Mesh* mesh, Vector4 colour) : name(name) {
 	 this -> mesh = mesh;
 	 this -> colour = colour;
 	 parent = NULL;
-	 this->shader = NULL;
+	 this->shader = AssetLoaderSingleton::loader.getShader("SceneVertex.glsl", "SceneFragment.glsl");
 	 modelScale = Vector3(1, 1, 1);
 	
 	 //tutorial 7
@@ -24,7 +24,14 @@ SceneNode ::~SceneNode(void) {
 	
 }
 
- void SceneNode::AddChild(SceneNode * s) {
+void SceneNode::SetShader(Shader* s)
+{
+	std::cout << s << "\n";
+	shader = s;
+	std::cout << s << "\n";
+}
+
+void SceneNode::AddChild(SceneNode * s) {
 	 children.push_back(s);
 	 s -> parent = this;
 	//hunt through all kids check that isnt a child of itself
@@ -49,9 +56,34 @@ SceneNode ::~SceneNode(void) {
  }
 
 
-void SceneNode::Draw(const OGLRenderer& r) {
+void SceneNode::Draw(OGLRenderer& r) {
 
-	if (mesh) { mesh->Draw(); };
+	if (mesh && shader) { 
+
+		r.BindShader(GetShader());
+		r.UpdateShaderMatrices();
+
+		glUniform1i(glGetUniformLocation(shader->GetProgram(),
+			"diffuseTex"), 0);
+
+		Matrix4 model = GetWorldTransform() *
+			Matrix4::Scale(GetModelScale());
+		glUniformMatrix4fv(
+			glGetUniformLocation(shader->GetProgram(),
+				"modelMatrix"), 1, false, model.values);
+
+		glUniform4fv(glGetUniformLocation(shader->GetProgram(),
+			"nodeColour"), 1, (float*)&GetColour());
+
+		texture = GetTexture();
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texture);
+
+		glUniform1i(glGetUniformLocation(shader->GetProgram(),
+			"useTexture"), texture);
+
+		mesh->Draw(); 
+	};
 	
 }
 void SceneNode::Update(float dt) {

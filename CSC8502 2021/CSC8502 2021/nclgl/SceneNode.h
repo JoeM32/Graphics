@@ -4,10 +4,11 @@
 #include "Vector4.h"
 #include "Mesh.h"
 #include <vector>
+#include "AssetLoaderSingleton.h"
 
 class SceneNode {
 public:
-	SceneNode(Mesh* m = NULL, Vector4 colour = Vector4(1, 1, 1, 1));
+	SceneNode(std::string name, Mesh* m = NULL, Vector4 colour = Vector4(1, 1, 1, 1));
 	~SceneNode(void);
 
 	void SetTransform(const Matrix4& matrix) { transform = matrix; }
@@ -21,13 +22,17 @@ public:
 	void SetModelScale(Vector3 s) { modelScale = s; }
 
 	Mesh* GetMesh() const { return mesh; }
-	Shader* GetShader() const { return shader; }
+	Shader* GetShader()  { return shader; }
 	void SetMesh(Mesh* m) { mesh = m; }
-	void SetShader(Shader* s) { shader = s; }
+	void SetShader(Shader* s);
 
+	std::string GetName()
+	{
+		return name;
+	}
 
 	void AddChild(SceneNode* s);	void RemoveChild(SceneNode* s);	void RemoveChildren();	virtual void Update(float dt);
-	virtual void Draw(const OGLRenderer& r);
+	virtual void Draw(OGLRenderer& r);
 
 	std::vector < SceneNode* >::const_iterator GetChildIteratorStart() {
 		return children.begin();
@@ -67,5 +72,7 @@ protected:
 	float distanceFromCamera;
 	float boundingRadius;
 	GLuint texture;
+
+	const std::string name;
 
 };

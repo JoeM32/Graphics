@@ -1,13 +1,38 @@
-#pragma once
-#include "../NCLGL/OGLRenderer.h"
+# pragma once
 
-class Renderer : public OGLRenderer	{
+#include "../nclgl/OGLRenderer.h"
+#include "../nclgl/SceneNode.h"
+#include "../nclgl/Frustrum.h"
+
+class Camera;
+class SceneNode;
+class Mesh;
+class Shader;
+
+class Renderer : public OGLRenderer {
 public:
-	Renderer(Window &parent);
-	 ~Renderer(void);
-	 void RenderScene()				override;
-	 void UpdateScene(float msec)	override;
+	Renderer(Window& parent);
+	~Renderer(void);
+
+	void UpdateScene(float msec) override;
+	void RenderScene() override;
+
 protected:
-	Mesh*	triangle;
-	Shader* basicShader;
-};
+	void BuildNodeLists(SceneNode* from);
+	void SortNodeLists();
+	void ClearNodeLists();
+	void DrawNodes();
+	void DrawNode(SceneNode* n);
+
+	SceneNode* root;
+	Camera* camera;
+	Mesh* quad;
+	Mesh* cube;
+	Shader* shader;
+	GLuint texture;
+
+	Frustum frameFrustum;
+
+	vector < SceneNode* > transparentNodeList;
+	vector < SceneNode* > nodeList;
+};

@@ -39,6 +39,8 @@
     <ClCompile Include="Frustrum.cpp" />
     <ClCompile Include="HeightMap.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="AssetLoader.cpp" />
+    <ClCompile Include="AssetLoaderSingleton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
@@ -89,6 +91,8 @@
     <ClInclude Include="Frustrum.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="AssetLoader.h" />
+    <ClInclude Include="AssetLoaderSingleton.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GLAD">

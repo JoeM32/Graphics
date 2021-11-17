@@ -1,17 +1,27 @@
 #include "Renderer.h"
 #include "../nclgl/CubeRobot.h"
 #include "../nclgl/Camera.h"
+#include "../nclgl/AssetLoader.h"
+#include "../nclgl/AssetLoaderSingleton.h"
 #include <algorithm> // For std :: sort ...
 
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
+
+	AssetLoader loader1;
+
 	camera = new Camera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
 	quad = Mesh::GenerateQuad();
-	cube = Mesh::LoadFromMeshFile("OffsetCubeY.msh");
+	//cube = Mesh::LoadFromMeshFile("OffsetCubeY.msh");
+	cube = loader1.getMesh("OffsetCubeY.msh");
+	//cube = AssetLoaderSingleton::loader.getMesh("OffsetCubeY.msh");
 
-	shader = new Shader("SceneVertex.glsl ", "SceneFragment.glsl");
+	//shader = new Shader("SceneVertex.glsl ", "SceneFragment.glsl");
+	shader = loader1.getShader("SceneVertex.glsl", "SceneFragment.glsl");
 
-	texture = SOIL_load_OGL_texture(TEXTUREDIR "stainedglass.tga",
-		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0);
+	/*texture = SOIL_load_OGL_texture(TEXTUREDIR "stainedglass.tga",
+		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0);*/
+
+	texture = *loader1.getTexture("stainedglass.tga");
 
 	if (!shader->LoadSuccess() || !texture) {
 		return;
