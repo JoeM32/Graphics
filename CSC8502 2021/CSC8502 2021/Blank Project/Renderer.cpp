@@ -1,5 +1,6 @@
 #include "Renderer.h"
 #include "../nclgl/CubeRobot.h"
+#include "../nclgl/Island.h"
 #include "../nclgl/AssetLoader.h"
 #include "../nclgl/AssetLoaderSingleton.h"
 #include <algorithm> // For std :: sort ...
@@ -29,30 +30,15 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	texture = *AssetLoaderSingleton::loader.getTexture("stainedglass.tga");
 
-	/*if (!shader->LoadSuccess() || !texture) {
-		return;
-
-	}*/
 
 	root = new SceneNode("root");
 
-	/*for (int i = 0; i < 5; ++i) {
-		SceneNode* s = new SceneNode();
-		s->SetColour(Vector4(1.0f, 1.0f, 1.0f, 0.5f));
-		s->SetTransform(Matrix4::Translation(
-			Vector3(0, 100.0f, -300.0f + 100.0f + 100 * i)));
-		s->SetModelScale(Vector3(100.0f, 100.0f, 100.0f));
-		s->SetBoundingRadius(100.0f);
-		s->SetMesh(quad);
-		s->SetTexture(texture);
-		root->AddChild(s);
-
-	}
-	*/
 	SceneNode* robro = new CubeRobot(cube);
 
 
 	root->AddChild(robro);
+	SceneNode* island = new Island();
+	root->AddChild(island);
 
 	projMatrix = Matrix4::Perspective(1.0f, 10000.0f,
 		(float)width / (float)height, 45.0f);
@@ -132,13 +118,7 @@ void Renderer::DrawNodes() {
 
 void Renderer::DrawNode(SceneNode* n) {
 
-
-	if (n->GetMesh()) {
-
-		n->Draw(*this);
-
-	}
-
+	n->Draw(*this);
 }
 
 void Renderer::RenderScene() {
@@ -147,11 +127,6 @@ void Renderer::RenderScene() {
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-	/*BindShader(shader);
-	UpdateShaderMatrices();
-
-	glUniform1i(glGetUniformLocation(shader->GetProgram(),
-		"diffuseTex"), 0);*/
 	DrawNodes();
 
 	ClearNodeLists();

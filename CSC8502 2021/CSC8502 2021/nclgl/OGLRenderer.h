@@ -61,8 +61,10 @@ public:
 	void			UpdateShaderMatrices();
 	void			BindShader(Shader*s);
 	
+	static void SetTextureRepeating(GLuint target, bool state);
+
 protected:
-	void SetTextureRepeating(GLuint target, bool state);
+	
 
 	virtual void	Resize(int x, int y);	
 

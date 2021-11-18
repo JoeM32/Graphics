@@ -1,5 +1,4 @@
 #include "Island.h"
-#include "OGLRenderer.cpp"
 
 Island::Island() : SceneNode("Island")
 {
@@ -23,12 +22,13 @@ Island::~Island()
 
 void Island::Draw(OGLRenderer& r)
 {
-	r.BindShader(GetShader());
+
+	r.BindShader(shader);
 	r.UpdateShaderMatrices();
 
 	glUniform1i(glGetUniformLocation(shader->GetProgram(),
-		"diffuseTex"), 0);
-	glActiveTexture(GL_TEXTURE0);
+		"diffuseTex"), 1);
+	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, terrainTex);
 	heightMap->Draw();
 }
