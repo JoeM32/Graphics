@@ -41,6 +41,9 @@
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="AssetLoader.cpp" />
     <ClCompile Include="AssetLoaderSingleton.cpp" />
+    <ClCompile Include="PlayerCamera.cpp" />
+    <ClCompile Include="CutsceneCamera.cpp" />
+    <ClCompile Include="Island.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
@@ -93,6 +96,9 @@
     <ClInclude Include="Light.h" />
     <ClInclude Include="AssetLoader.h" />
     <ClInclude Include="AssetLoaderSingleton.h" />
+    <ClInclude Include="PlayerCamera.h" />
+    <ClInclude Include="CutsceneCamera.h" />
+    <ClInclude Include="Island.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GLAD">

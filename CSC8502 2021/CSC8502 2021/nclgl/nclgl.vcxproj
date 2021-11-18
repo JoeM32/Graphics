@@ -25,9 +25,11 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ComputeShader.cpp" />
     <ClCompile Include="CubeRobot.cpp" />
+    <ClCompile Include="CutsceneCamera.cpp" />
     <ClCompile Include="Frustrum.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="HeightMap.cpp" />
+    <ClCompile Include="Island.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Matrix2.cpp" />
@@ -39,6 +41,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="OGLRenderer.cpp" />
     <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="PlayerCamera.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -51,10 +54,12 @@
     <ClInclude Include="common.h" />
     <ClInclude Include="ComputeShader.h" />
     <ClInclude Include="CubeRobot.h" />
+    <ClInclude Include="CutsceneCamera.h" />
     <ClInclude Include="Frustrum.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="InputDevice.h" />
+    <ClInclude Include="Island.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Matrix2.h" />
@@ -66,6 +71,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="OGLRenderer.h" />
     <ClInclude Include="Plane.h" />
+    <ClInclude Include="PlayerCamera.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="Shader.h" />

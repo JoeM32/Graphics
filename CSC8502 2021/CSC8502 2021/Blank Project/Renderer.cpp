@@ -1,6 +1,5 @@
 #include "Renderer.h"
 #include "../nclgl/CubeRobot.h"
-#include "../nclgl/Camera.h"
 #include "../nclgl/AssetLoader.h"
 #include "../nclgl/AssetLoaderSingleton.h"
 #include <algorithm> // For std :: sort ...
@@ -8,7 +7,10 @@
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	AssetLoaderSingleton::loader.Load();
-	camera = new Camera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
+	camera = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
+	//camera = new CutsceneCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)), 5);
+	//camera->AddShot({ 0.0f, 0.0f, (Vector3(0, 5, 250.0f)), 5 });
+	//camera->Play();
 	quad = Mesh::GenerateQuad();
 	//cube = Mesh::LoadFromMeshFile("OffsetCubeY.msh");
 	cube = AssetLoaderSingleton::loader.getMesh("OffsetCubeY.msh");
@@ -58,6 +60,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	init = true;
 
 }
@@ -129,7 +132,7 @@ void Renderer::DrawNodes() {
 
 void Renderer::DrawNode(SceneNode* n) {
 
-	std::cout << n->GetName() << "\n";
+
 	if (n->GetMesh()) {
 
 		n->Draw(*this);

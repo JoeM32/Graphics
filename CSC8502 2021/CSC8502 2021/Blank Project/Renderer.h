@@ -3,6 +3,8 @@
 #include "../nclgl/OGLRenderer.h"
 #include "../nclgl/SceneNode.h"
 #include "../nclgl/Frustrum.h"
+#include "../nclgl/PlayerCamera.h"
+#include "../nclgl/CutsceneCamera.h"
 
 class Camera;
 class SceneNode;
@@ -25,7 +27,7 @@ protected:
 	void DrawNode(SceneNode* n);
 
 	SceneNode* root;
-	Camera* camera;
+	PlayerCamera* camera;
 	Mesh* quad;
 	Mesh* cube;
 	Shader* shader;
