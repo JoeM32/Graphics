@@ -28,5 +28,8 @@ private:
 	std::map<std::pair<std::string, std::string>, Shader*> shaders;
 	std::map<std::string, Mesh*> meshes;
 	std::map<std::string, GLuint> textures;
+	Shader* loadShader(std::string vertex, std::string fragment);
+	Mesh* loadMesh(std::string file);
+	GLuint* loadTexture(std::string file);
 };
 

@@ -12,12 +12,12 @@ HeightMap::HeightMap(const  std:: string& name) {
     vertices = new  Vector3[numVertices]; 
     textureCoords = new  Vector2[numVertices]; 
     indices = new  GLuint[numIndices];
-    Vector3  vertexScale = Vector3(16.0f, 1.0f, 16.0f); 
-    Vector2  textureScale = Vector2(1 / 16.0f, 1 / 16.0f); 
+    Vector3  vertexScale = Vector3(scale, height, scale);
+    Vector2  textureScale = Vector2(1 / scale, 1 / scale);
     for (int z = 0; z < iHeight; ++z) { 
         for (int x = 0; x < iWidth; ++x) { 
             int  offset = (z * iWidth) + x; 
-            vertices[offset] = Vector3(x, data[offset], z) * vertexScale; 
+            vertices[offset] = Vector3(x, data[offset] , z) * vertexScale - (Vector3(0,height * 100,0)); 
             textureCoords[offset] = Vector2(x, z) * textureScale; 
         }
     }

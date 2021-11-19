@@ -2,16 +2,19 @@
 
 Island::Island() : SceneNode("Island")
 {
-	heightMap = new  HeightMap(TEXTUREDIR"noise.png");
+	heightMap = new  HeightMap(TEXTUREDIR"IslandHeightmap.jpg");
 
 	Vector3  dimensions = heightMap->GetHeightmapSize();
 
-	shader = new  Shader("HeightVertex.glsl", "HeightFragment.glsl");
+	shader = AssetLoaderSingleton::loader.getShader("HeightVertex.glsl", "HeightFragment.glsl");
 
-	terrainTex = SOIL_load_OGL_texture(TEXTUREDIR"Barren Reds.jpg",
-		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
+	terrainTex = *AssetLoaderSingleton::loader.getTexture("Barren Reds.jpg");
+	/*terrainTex = SOIL_load_OGL_texture(TEXTUREDIR"Barren Reds.jpg",
+		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);*/
 
 	OGLRenderer::SetTextureRepeating(terrainTex, true);
+	SetBoundingRadius(dimensions.Length());
+	transform = Matrix4::Translation(dimensions/2);
 
 }
 
@@ -22,7 +25,6 @@ Island::~Island()
 
 void Island::Draw(OGLRenderer& r)
 {
-
 	r.BindShader(shader);
 	r.UpdateShaderMatrices();
 

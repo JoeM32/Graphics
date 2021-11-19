@@ -9,5 +9,4 @@ in Vertex {
 out vec4 fragColour ;
 void main ( void ) {
 	fragColour = texture ( diffuseTex , IN.texCoord );
-	fragColour = IN.pos.xxyz;
 }
