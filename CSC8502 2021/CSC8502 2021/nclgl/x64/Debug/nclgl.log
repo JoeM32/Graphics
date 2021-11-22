@@ -1,6 +1,2 @@
-﻿  HeightMap.cpp
-H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\HeightMap.cpp(20,58): warning C4244:  'argument': conversion from 'int' to 'const float', possible loss of data
-H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\HeightMap.cpp(20,40): warning C4244:  'argument': conversion from 'int' to 'const float', possible loss of data
-H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\HeightMap.cpp(21,48): warning C4244:  'argument': conversion from 'int' to 'const float', possible loss of data
-H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\HeightMap.cpp(21,45): warning C4244:  'argument': conversion from 'int' to 'const float', possible loss of data
-  nclgl.vcxproj -> H:\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\nclgl.lib
+﻿  Island.cpp
+  nclgl.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\nclgl.lib

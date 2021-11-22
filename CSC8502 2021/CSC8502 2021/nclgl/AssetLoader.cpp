@@ -69,6 +69,7 @@ void AssetLoader::Unload()
 	{
 		delete pair.second;
 	}
+	//glDeleteTextures(1, &texture);
 	meshes = {};
 	shaders = {};
 	textures = {};
@@ -103,11 +104,11 @@ GLuint* AssetLoader::loadTexture(std::string file)
 		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0);
 	if (!texture)
 	{
-		throw invalid_argument("Incorrect texture");
+		std::cout << ("../Textures/" + file).c_str() << "\n";
+		//throw invalid_argument("Incorrect texture");
 	}
 	textures.insert({ file, texture });
 	return &texture;
 }
-
 
 

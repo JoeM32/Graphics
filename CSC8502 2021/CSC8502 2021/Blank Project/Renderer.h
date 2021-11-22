@@ -18,7 +18,9 @@ public:
 
 	void UpdateScene(float msec) override;
 	void RenderScene() override;
-
+	GLuint GetShadowTex() override;
+	void SetShaderLights() override;
+	virtual Vector3 GetCameraPos();
 protected:
 	void BuildNodeLists(SceneNode* from);
 	void SortNodeLists();
@@ -26,12 +28,22 @@ protected:
 	void DrawNodes();
 	void DrawNode(SceneNode* n);
 
+	void DrawNodesRaw();
+	void DrawNodeRaw(SceneNode* n);
+
+	void DrawShadowScene();
+	GLuint shadowTex;
+	GLuint shadowFBO;
+	Shader* shadowShader;
+
 	SceneNode* root;
 	PlayerCamera* camera;
 	Mesh* quad;
 	Mesh* cube;
 	Shader* shader;
 	GLuint texture;
+
+	Light* light;
 
 	Frustum frameFrustum;
 

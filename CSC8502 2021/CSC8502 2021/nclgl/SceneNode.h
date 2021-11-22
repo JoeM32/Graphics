@@ -33,6 +33,7 @@ public:
 
 	void AddChild(SceneNode* s);	void RemoveChild(SceneNode* s);	void RemoveChildren();	virtual void Update(float dt);
 	virtual void Draw(OGLRenderer& r);
+	virtual void DrawRaw(OGLRenderer& r);
 
 	std::vector < SceneNode* >::const_iterator GetChildIteratorStart() {
 		return children.begin();

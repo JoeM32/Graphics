@@ -5,6 +5,8 @@
 #include "../nclgl/AssetLoaderSingleton.h"
 #include <algorithm> // For std :: sort ...
 
+constexpr auto SHADOWSIZE = 2048;
+
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	AssetLoaderSingleton::loader.Load();
@@ -28,8 +30,31 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	/*texture = SOIL_load_OGL_texture(TEXTUREDIR "stainedglass.tga",
 		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0);*/
 
-	texture = *AssetLoaderSingleton::loader.getTexture("stainedglass.tga");
+	//light = new Light(Vector3(12.0f, 6.0f, 22.0f) * 100,
+	//	Vector4(1, 1, 1, 1), 250.0f);
 
+	light = new Light(Vector3(2000, 800, 2000),
+		Vector4(1, 1, 1, 1), 2500.0f);
+
+	shadowShader = new Shader("shadowVert.glsl", "shadowFrag.glsl");
+
+	glGenTextures(1, &shadowTex);
+	glBindTexture(GL_TEXTURE_2D, shadowTex);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
+		SHADOWSIZE, SHADOWSIZE, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	glGenFramebuffers(1, &shadowFBO);
+	glBindFramebuffer(GL_FRAMEBUFFER, shadowFBO);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
+		GL_TEXTURE_2D, shadowTex, 0);
+	glDrawBuffer(GL_NONE);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	root = new SceneNode("root");
 
@@ -56,14 +81,40 @@ Renderer ::~Renderer(void) {
 	delete quad;
 	delete camera;
 	AssetLoaderSingleton::loader.Unload();
-	glDeleteTextures(1, &texture);
+	glDeleteTextures(1, &shadowTex);
+	glDeleteFramebuffers(1, &shadowFBO);
 
 }
+
+void Renderer::DrawShadowScene() {
+	glBindFramebuffer(GL_FRAMEBUFFER, shadowFBO);
+
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
+		GL_TEXTURE_2D, shadowTex, 0);
+
+	glClear(GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, SHADOWSIZE, SHADOWSIZE);
+	glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+
+	BindShader(shadowShader);
+	viewMatrix = Matrix4::BuildViewMatrix(
+		light->GetPosition(), Vector3(0, 0, 0));
+	projMatrix = Matrix4::Perspective(1, 100, 1, 45);
+	shadowMatrix = projMatrix * viewMatrix; // used later
+
+	DrawNodesRaw(); 
+
+	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+	glViewport(0, 0, width, height); 
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
 void Renderer::UpdateScene(float dt) {
 	camera->UpdateCamera(dt);
 	viewMatrix = camera->BuildViewMatrix();
 	frameFrustum.FromMatrix(projMatrix * viewMatrix);
-
+	//light->SetPosition(camera->GetPosition());
 	root->Update(dt);
 
 }
@@ -116,9 +167,23 @@ void Renderer::DrawNodes() {
 
 }
 
-void Renderer::DrawNode(SceneNode* n) {
+void Renderer::DrawNodesRaw() {
+	for (const auto& i : nodeList) {
+		DrawNodeRaw(i);
 
+	}
+}
+
+void Renderer::DrawNode(SceneNode* n) {
+	modelMatrix = n->GetTransform();
+	UpdateShaderMatrices();
 	n->Draw(*this);
+}
+
+void Renderer::DrawNodeRaw(SceneNode* n) {
+	modelMatrix = n->GetTransform();
+	UpdateShaderMatrices();
+	n->DrawRaw(*this);
 }
 
 void Renderer::RenderScene() {
@@ -126,11 +191,31 @@ void Renderer::RenderScene() {
 	SortNodeLists();
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-
+	DrawShadowScene();
+	viewMatrix = camera->BuildViewMatrix();
+	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
+		(float)width / (float)height, 45.0f);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	DrawNodes();
 
 	ClearNodeLists();
 
+}
+
+GLuint Renderer::GetShadowTex()
+{
+	return shadowTex;
+}
+
+void Renderer::SetShaderLights() 
+{
+	SetShaderLight(*light);
+
+}
+
+Vector3 Renderer::GetCameraPos()
+{
+	return camera->GetPosition();
 }
 
 void Renderer::ClearNodeLists() {

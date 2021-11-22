@@ -3,6 +3,9 @@
 #include <algorithm>
 void Camera::UpdateCamera(float dt) {
 	
+	if (Window::GetKeyboard()->KeyDown(KEYBOARD_C)) {
+		std::cout << std::to_string(position.x) << "," << std::to_string(position.y) << "," << std::to_string(position.z) << "\n";
+	}
 	/*pitch -= (Window::GetMouse()->GetRelativePosition().y);
 	yaw -= (Window::GetMouse()->GetRelativePosition().x);
 

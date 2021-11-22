@@ -1,1 +1,10 @@
-﻿  Tutorial15.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Tutorial 15 - Deferred Shading.exe
+﻿  Renderer.cpp
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(33,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\15) Deferred Shading\Renderer.cpp(31,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  Tutorial15.cpp
+  Generating Code...
+nclgl.lib(stb_image_aug.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'nclgl.lib(stb_image_aug.obj)' or at 'C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\SOIL.pdb'; linking object as if no debug info
+nclgl.lib(SOIL.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'nclgl.lib(SOIL.obj)' or at 'C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\SOIL.pdb'; linking object as if no debug info
+nclgl.lib(image_helper.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'nclgl.lib(image_helper.obj)' or at 'C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\SOIL.pdb'; linking object as if no debug info
+nclgl.lib(image_DXT.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'nclgl.lib(image_DXT.obj)' or at 'C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\SOIL.pdb'; linking object as if no debug info
+  Tutorial15.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Tutorial 15 - Deferred Shading.exe

@@ -260,7 +260,21 @@ void OGLRenderer::SetTextureRepeating(GLuint target, bool repeating) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,
 		repeating ? GL_REPEAT : GL_CLAMP);
 	glBindTexture(GL_TEXTURE_2D, 0);
-}
+}
+
+GLuint OGLRenderer::GetShadowTex()
+{
+	return GLuint();
+}
+
+void OGLRenderer::SetShaderLights()
+{
+}
+
+Vector3 OGLRenderer::GetCameraPos()
+{
+	return Vector3();
+}
 
 #ifdef OPENGL_DEBUGGING
 void OGLRenderer::DebugCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)	{

@@ -2,7 +2,6 @@
 uniform sampler2D diffuseTex ;
 uniform sampler2D bumpTex ;
 uniform sampler2D shadowTex ; // NEW !
-uniform sampler2D shadowTex2 ; // NEW !
 uniform vec4 lightColour ;
 uniform vec3 lightPos ;
 uniform vec3 cameraPos ;
@@ -43,7 +42,7 @@ void main ( void ) {
 	abs ( shadowNDC . y ) < 1.0f &&
 	abs ( shadowNDC . z ) < 1.0f ) {
 		vec3 biasCoord = shadowNDC *0.5f + 0.5f ;
-		float shadowZ = texture ( shadowTex , biasCoord . xy ). x + texture ( shadowTex2 , biasCoord . xy ). x;
+		float shadowZ = texture ( shadowTex , biasCoord . xy ). x;
 		if( shadowZ < biasCoord . z ) {
 			shadow = 0.0f ;
 		}

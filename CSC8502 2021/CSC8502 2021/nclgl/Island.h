@@ -6,11 +6,22 @@ public:
 	Island();
 	~Island();
 	virtual void Draw(OGLRenderer& r) override;
+	virtual void DrawRaw(OGLRenderer& r) override;
 	void Update(float dt) override;
 protected:
 	HeightMap* heightMap;
 	Shader* shader;
-	GLuint terrainTex;
 
+	GLuint grassTex;
+	GLuint grassBumpTex;
+	GLuint grass2Tex;
+	GLuint grass2BumpTex;
+	GLuint mudTex;
+	GLuint mudBumpTex;
+	GLuint rockTex;
+	GLuint rockBumpTex;
+	GLuint sandTex;
+	GLuint sandBumpTex;
+	GLuint noise;
 };
 

@@ -86,6 +86,14 @@ void SceneNode::Draw(OGLRenderer& r) {
 	};
 	
 }
+
+void SceneNode::DrawRaw(OGLRenderer& r) {
+
+	if (mesh) {
+		mesh->Draw();
+	};
+
+}
 void SceneNode::Update(float dt) {
 	if (parent) { // This node has a parent ...
 		worldTransform = parent->worldTransform * transform;

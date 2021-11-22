@@ -62,7 +62,9 @@ public:
 	void			BindShader(Shader*s);
 	
 	static void SetTextureRepeating(GLuint target, bool state);
-
+	virtual GLuint GetShadowTex();
+	virtual void SetShaderLights();
+	virtual Vector3 GetCameraPos();
 protected:
 	
 

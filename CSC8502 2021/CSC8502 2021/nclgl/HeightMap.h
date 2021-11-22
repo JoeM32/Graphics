@@ -8,6 +8,7 @@ public:
     Vector3  GetHeightmapSize()  const { return  heightmapSize; }
 protected:
     Vector3  heightmapSize;
-	float height = 45;
-	float scale = 16.0f; //16
+	float height = 6.0f;
+    float scale = 8.0;//16
+    int smoothing = 2;
 };
