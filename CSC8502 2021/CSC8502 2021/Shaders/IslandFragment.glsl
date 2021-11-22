@@ -55,12 +55,12 @@ void main ( void ) {
 	vec4 diffusey = texture ( rockTex , IN . worldPos.xz * 0.005 );
 	vec4 diffusez = texture ( rockTex , IN . worldPos.xy * 0.005 );
 	
-	vec3 normal = vec3(0,0,0); //texture ( rockBumpTex , IN . worldPos.xz * 0.005 ).rgb;// //texture ( rockBumpTex , IN . texCoord ). rgb ;
+	vec3 bumpNormal = texture ( rockBumpTex , IN . worldPos.xz * 0.005 ).rgb;// //texture ( rockBumpTex , IN . texCoord ). rgb ;
 
 	vec4 tex = (diffusex * blending.x) + (diffusey * blending.y) + (diffusez * blending.z);
 
-	normal = normalize ( TBN * normal * 2.0 - 1.0);
-	float lambert = max ( dot ( incident , normal ) , 0.0f );
+	vec3 normal = normalize ( TBN * bumpNormal * 2.0 - 1.0);
+	float lambert = max ( dot ( incident , bumpNormal ) , 0.0f );
 	float distance = length ( lightPos - IN . worldPos );
 	float attenuation = 1.0f - clamp ( distance / lightRadius , 0.0 , 1.0);
 
