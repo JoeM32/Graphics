@@ -7,6 +7,7 @@ public:
 	~Island();
 	virtual void Draw(OGLRenderer& r) override;
 	virtual void DrawRaw(OGLRenderer& r) override;
+	HeightMap* getHeightMap() { return heightMap;  };
 	void Update(float dt) override;
 protected:
 	HeightMap* heightMap;

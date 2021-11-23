@@ -22,6 +22,31 @@ public:
 	void SetShaderLights() override;
 	virtual Vector3 GetCameraPos();
 protected:
+
+	void FillBuffers();
+	void DrawPointLights();
+	void CombineBuffers();
+
+	void GenerateScreenTexture(GLuint& into, bool depth = false);
+
+	GLuint earthTex;
+	Shader* sceneShader;
+	Shader* pointlightShader;
+	Shader* combineShader;
+	GLuint bufferFBO;
+	GLuint bufferColourTex;
+	GLuint bufferNormalTex;
+	GLuint bufferDepthTex;
+	GLuint pointLightFBO;
+	GLuint lightDiffuseTex;
+	GLuint lightSpecularTex;
+	Light* pointLights; // Array of lighting data
+	Mesh* sphere; // Light volume
+	GLuint earthBump;
+
+
+
+
 	void BuildNodeLists(SceneNode* from);
 	void SortNodeLists();
 	void ClearNodeLists();
@@ -49,4 +74,5 @@ protected:
 
 	vector < SceneNode* > transparentNodeList;
 	vector < SceneNode* > nodeList;
-};
+		GLuint depthMapFBO;
+	GLuint depthMap;};

@@ -15,7 +15,8 @@ public:
  protected:
 
 	 HeightMap* heightMap;
- void FillBuffers(); //G- Buffer Fill Render Pass
+
+	void FillBuffers(); //G- Buffer Fill Render Pass
 	void DrawPointLights(); // Lighting Render Pass
 	void CombineBuffers(); // Combination Render Pass
 	// Make a new texture ...

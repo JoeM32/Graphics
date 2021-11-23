@@ -15,5 +15,6 @@ vec3 specular = texture ( specularLight , IN . texCoord ). xyz ;
 fragColour . xyz = diffuse * 0.1; // ambient
 fragColour . xyz += diffuse * light ; // lambert
 fragColour . xyz += specular ; // Specular
+fragColour . xyz += light ; // Specular
 fragColour . a = 1.0;
 }

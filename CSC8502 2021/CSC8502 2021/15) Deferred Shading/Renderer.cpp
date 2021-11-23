@@ -195,7 +195,9 @@ void Renderer::GenerateScreenTexture(GLuint& into, bool depth) {
 		 glUniform2f(glGetUniformLocation(pointlightShader -> GetProgram(),
 			 "pixelSize"), 1.0f / width, 1.0f / height);
 	
-		 Matrix4 invViewProj = (projMatrix * viewMatrix).Inverse();
+		 
+
+		 Matrix4 invViewProj = (projMatrix * viewMatrix);
 	 glUniformMatrix4fv(glGetUniformLocation(
 		 pointlightShader -> GetProgram(), "inverseProjView"),
 		 1, false, invViewProj.values);	UpdateShaderMatrices();

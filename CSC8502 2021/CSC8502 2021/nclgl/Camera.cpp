@@ -52,7 +52,7 @@ void Camera::UpdateCamera(float dt) {
 		roll += 30.0f *dt;
 	}*/}Matrix4 Camera::BuildViewMatrix() {
 	return  Matrix4::Rotation(-pitch, Vector3(1, 0, 0)) *
-		 Matrix4::Rotation(-yaw, Vector3(0, 1, 0)) * Matrix4::Rotation(-roll, Vector3(0, 0, 1)) *
+		 Matrix4::Rotation(-yaw, Vector3(0, 1, 0)) * 
 		 Matrix4::Translation(-position) ;
 
 
