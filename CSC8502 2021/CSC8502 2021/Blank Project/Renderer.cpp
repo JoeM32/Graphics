@@ -11,6 +11,9 @@ constexpr auto LIGHT_NUM = 30;
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	AssetLoaderSingleton::loader.Load();
+	AssetLoaderSingleton::loader.SetFiltering(true);
+
+
 	camera = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
 	//camera = new CutsceneCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)), 5);
 	//camera->AddShot({ 0.0f, 0.0f, (Vector3(0, 5, 250.0f)), 5 });
@@ -168,6 +171,24 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 		return;
 	}
 
+	//skybox
+	skybox = SOIL_load_OGL_cubemap(
+		TEXTUREDIR "west.png", TEXTUREDIR "east.png",
+		TEXTUREDIR "up.png", TEXTUREDIR "down.png",
+		TEXTUREDIR "south.png", TEXTUREDIR "north.png",
+		SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, 0);
+	/*skybox = SOIL_load_OGL_cubemap(
+		TEXTUREDIR "rusted_west.jpg", TEXTUREDIR "rusted_east.jpg",
+		TEXTUREDIR "rusted_up.jpg", TEXTUREDIR "rusted_down.jpg",
+		TEXTUREDIR "rusted_south.jpg", TEXTUREDIR "rusted_north.jpg",
+		SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, 0);*/
+	if (!skybox) {
+		std::cout << "Skybox FAILED";
+	}
+	skyboxShader = new Shader(
+		"skyboxVertex.glsl", "skyboxFragment.glsl");
+	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
@@ -176,7 +197,25 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
+
+
 	init = true;
+
+}
+
+void Renderer::DrawSkybox() {
+	glDepthMask(GL_FALSE);
+
+	BindShader(skyboxShader);
+	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
+		(float)width / (float)height, 45.0f);
+	//modelMatrix.ToIdentity(); // New !
+	//textureMatrix.ToIdentity(); // New !
+	UpdateShaderMatrices();
+
+	quad->Draw();
+
+	glDepthMask(GL_TRUE);
 
 }
 
@@ -272,7 +311,6 @@ void Renderer::UpdateScene(float dt) {
 	//Light& l = pointLights[0];
 	//l.SetPosition(camera->GetPosition() - Vector3(0,250,0));
 	root->Update(dt);
-
 }
 
 void Renderer::BuildNodeLists(SceneNode* from) {
@@ -345,23 +383,29 @@ void Renderer::DrawNodeRaw(SceneNode* n) {
 }
 
 void Renderer::RenderScene() {
+
 	BuildNodeLists(root);
 	SortNodeLists();
 
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	//DrawShadowScene();
+	//shadows
+	/*glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	DrawShadowScene();
 	viewMatrix = camera->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f);
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	FillBuffers();
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);*/
+
+	//deferred
+	/*FillBuffers();
 	DrawPointLights();
-	CombineBuffers();
-	/*glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	CombineBuffers();*/
+
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	DrawSkybox();
 	viewMatrix = camera->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f); 
-	DrawNodes();*/
+	DrawNodes();
 	ClearNodeLists();
 
 }

@@ -101,12 +101,18 @@ Mesh* AssetLoader::loadMesh(std::string file)
 GLuint* AssetLoader::loadTexture(std::string file)
 {
 	GLuint texture = SOIL_load_OGL_texture(("../Textures/" + file).c_str(),
-		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0);
+		SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	if (!texture)
 	{
 		std::cout << ("../Textures/" + file).c_str() << "\n";
 		//throw invalid_argument("Incorrect texture");
 	}
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+		!filtering ? GL_LINEAR : GL_LINEAR_MIPMAP_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
+		!filtering ? GL_LINEAR : GL_NEAREST);
+	glBindTexture(GL_TEXTURE_2D, 0);
 	textures.insert({ file, texture });
 	return &texture;
 }

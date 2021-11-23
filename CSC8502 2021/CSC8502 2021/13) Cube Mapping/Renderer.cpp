@@ -2,7 +2,7 @@
 #include "../nclgl/Light.h"
 #include "../nclgl/Heightmap.h"
 #include "../nclgl/Shader.h"
-#include "../nclgl/Camera.h"
+#include "../nclgl/PlayerCamera.h"
 
 Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	quad = Mesh::GenerateQuad();
@@ -52,7 +52,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	}
 	Vector3 heightmapSize = heightMap->GetHeightmapSize();
 
-	camera = new Camera(-45.0f, 0.0f,
+	camera = new PlayerCamera(-45.0f, 0.0f,
 		heightmapSize * Vector3(0.5f, 5.0f, 0.5f));
 	light = new Light(heightmapSize * Vector3(0.5f, 1.5f, 0.5f),
 		Vector4(1, 1, 1, 1), heightmapSize.x);

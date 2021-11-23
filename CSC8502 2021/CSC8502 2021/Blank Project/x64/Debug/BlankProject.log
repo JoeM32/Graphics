@@ -1,5 +1,5 @@
 ﻿  Renderer.cpp
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(89,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(88,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(87,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(92,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(91,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(90,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
   BlankProject.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Blank Project.exe

@@ -19,6 +19,10 @@ public:
 	Shader* getShader(std::string vertex, std::string fragment);
 	Mesh* getMesh(std::string file);
 	GLuint* getTexture(std::string file);
+	void SetFiltering(bool filter)
+	{
+		filtering = filter;
+	}
 	void Load();
 	void Unload();
 private:
@@ -31,5 +35,6 @@ private:
 	Shader* loadShader(std::string vertex, std::string fragment);
 	Mesh* loadMesh(std::string file);
 	GLuint* loadTexture(std::string file);
+	bool filtering = true;
 };
 
