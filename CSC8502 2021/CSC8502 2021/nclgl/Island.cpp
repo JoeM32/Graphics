@@ -3,10 +3,10 @@
 Island::Island() : SceneNode("Island")
 {
 	heightMap = new  HeightMap(TEXTUREDIR"IslandHeightmap.png");
-
 	Vector3  dimensions = heightMap->GetHeightmapSize();
 
 	shader = AssetLoaderSingleton::loader.getShader("IslandVertex.glsl", "IslandFragment.glsl");
+
 
 	rockTex = *AssetLoaderSingleton::loader.getTexture("rock.png");
 	rockBumpTex = *AssetLoaderSingleton::loader.getTexture("rockBump.png");

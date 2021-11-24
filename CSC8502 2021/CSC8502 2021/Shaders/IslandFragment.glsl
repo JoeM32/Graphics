@@ -27,7 +27,7 @@ in Vertex {
 	vec4 shadowProj ; // New !
 } IN ;
 
-out vec4 fragColour ;
+out vec4 fragColour[2] ;
 
 void main ( void ) {
 
@@ -79,12 +79,13 @@ void main ( void ) {
 		}
 	}
 	vec3 surface = ( diffuse . rgb * lightColour . rgb ); // Base colour
-	fragColour . rgb = surface * attenuation * lambert ; // diffuse
-	fragColour . rgb +=( lightColour . rgb * attenuation * specFactor )*0.33;
-	fragColour . rgb *= shadow ; // shadowing factor
-	fragColour . rgb += surface * 0.1f ; // ambient
-	//fragColour = vec4(attenuation,lambert,0,1);
-	fragColour . a = diffuse . a ; // alpha
-	//fragColour.rgb = vec3(0,0,0);
-	//fragColour.r = shadow;
+	diffuse . rgb = surface * attenuation * lambert ; // diffuse
+	diffuse . rgb +=( lightColour . rgb * attenuation * specFactor )*0.33;
+	diffuse . rgb *= shadow ; // shadowing factor
+	diffuse . rgb += surface * 0.1f ; // ambient
+	diffuse . a = diffuse . a ; // alpha
+	fragColour[0].a = 1;
+	fragColour[0].rgb = diffuse.rgb;
+	//fragColour[0].rgb = IN.tangent.rgb;
+	fragColour [1] = vec4 ( normal . xyz * 0.5 + 0.5 ,1.0);
 }

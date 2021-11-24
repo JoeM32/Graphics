@@ -39,10 +39,12 @@
     <ClCompile Include="MeshAnimation.cpp" />
     <ClCompile Include="MeshMaterial.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Ocean.cpp" />
     <ClCompile Include="OGLRenderer.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PlayerCamera.cpp" />
     <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="Rock.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -69,10 +71,12 @@
     <ClInclude Include="MeshAnimation.h" />
     <ClInclude Include="MeshMaterial.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Ocean.h" />
     <ClInclude Include="OGLRenderer.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="PlayerCamera.h" />
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="Rock.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Vector2.h" />

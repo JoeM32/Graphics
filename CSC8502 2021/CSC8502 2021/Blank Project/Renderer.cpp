@@ -1,6 +1,8 @@
 #include "Renderer.h"
 #include "../nclgl/CubeRobot.h"
 #include "../nclgl/Island.h"
+#include "../nclgl/Ocean.h"
+#include "../nclgl/Rock.h"
 #include "../nclgl/AssetLoader.h"
 #include "../nclgl/AssetLoaderSingleton.h"
 #include <algorithm> // For std :: sort ...
@@ -70,8 +72,19 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 
 	root->AddChild(robro);
-	SceneNode* island = new Island();
+	Island* island = new Island();
+	//island->getHeightMap()->rockSpots;
+	for each (Vector3 var in island->getHeightMap()->rockSpots)
+	{
+		SceneNode* rock = new Rock();
+		rock->SetTransform(Matrix4::Translation(var) * rock->GetTransform());
+		island->AddChild(rock);
+
+	}
 	root->AddChild(island);
+	
+	SceneNode* ocean = new Ocean();
+	root->AddChild(ocean);
 
 	projMatrix = Matrix4::Perspective(1.0f, 10000.0f,
 		(float)width / (float)height, 45.0f);
@@ -177,11 +190,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 		TEXTUREDIR "up.png", TEXTUREDIR "down.png",
 		TEXTUREDIR "south.png", TEXTUREDIR "north.png",
 		SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, 0);
-	/*skybox = SOIL_load_OGL_cubemap(
-		TEXTUREDIR "rusted_west.jpg", TEXTUREDIR "rusted_east.jpg",
-		TEXTUREDIR "rusted_up.jpg", TEXTUREDIR "rusted_down.jpg",
-		TEXTUREDIR "rusted_south.jpg", TEXTUREDIR "rusted_north.jpg",
-		SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, 0);*/
+
 	if (!skybox) {
 		std::cout << "Skybox FAILED";
 	}
@@ -209,8 +218,8 @@ void Renderer::DrawSkybox() {
 	BindShader(skyboxShader);
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f);
-	//modelMatrix.ToIdentity(); // New !
-	//textureMatrix.ToIdentity(); // New !
+	//modelMatrix.ToIdentity(); 
+	//textureMatrix.ToIdentity(); 
 	UpdateShaderMatrices();
 
 	quad->Draw();
@@ -396,16 +405,17 @@ void Renderer::RenderScene() {
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);*/
 
 	//deferred
-	/*FillBuffers();
-	DrawPointLights();
-	CombineBuffers();*/
-
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	DrawSkybox();
+	FillBuffers();
+	DrawPointLights();
+	CombineBuffers();
+
+	
+	/*DrawSkybox();
 	viewMatrix = camera->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f); 
-	DrawNodes();
+	DrawNodes();*/
 	ClearNodeLists();
 
 }
@@ -414,7 +424,7 @@ void Renderer::FillBuffers() {
 	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-	BindShader(sceneShader);
+	/*BindShader(sceneShader);
 	glUniform1i(
 		glGetUniformLocation(sceneShader->GetProgram(), "diffuseTex"), 0);
 	glUniform1i(
@@ -424,7 +434,7 @@ void Renderer::FillBuffers() {
 	glBindTexture(GL_TEXTURE_2D, earthTex);
 
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, earthBump);
+	glBindTexture(GL_TEXTURE_2D, earthBump);*/
 
 	modelMatrix.ToIdentity();
 	viewMatrix = camera->BuildViewMatrix();
@@ -521,6 +531,11 @@ void Renderer::CombineBuffers() {
 GLuint Renderer::GetShadowTex()
 {
 	return shadowTex;
+}
+
+GLuint Renderer::GetSkybox()
+{
+	return skybox;
 }
 
 void Renderer::SetShaderLights() 

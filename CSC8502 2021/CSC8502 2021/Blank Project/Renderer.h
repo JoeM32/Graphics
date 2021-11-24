@@ -19,6 +19,7 @@ public:
 	void UpdateScene(float msec) override;
 	void RenderScene() override;
 	GLuint GetShadowTex() override;
+	GLuint GetSkybox() override;
 	void SetShaderLights() override;
 	virtual Vector3 GetCameraPos();
 protected:

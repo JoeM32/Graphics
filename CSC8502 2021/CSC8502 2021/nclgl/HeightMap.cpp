@@ -1,5 +1,7 @@
 #include "HeightMap.h"
-HeightMap::HeightMap(const  std:: string& name) {
+HeightMap::HeightMap(const  std:: string& name, float height, float scale) {
+    this->scale = scale;
+    this->height = height;
     int  iWidth , iHeight , iChans;
     unsigned  char* data = SOIL_load_image(name.c_str(),
         &iWidth , &iHeight , &iChans , 1);
@@ -34,7 +36,11 @@ HeightMap::HeightMap(const  std:: string& name) {
                     }
                 }
             }
-            vertices[offset] = (Vector3(x, total / (9.0f * (float)smoothing), z) * vertexScale) - (Vector3(0, height * 100, 0));
+            vertices[offset] = (Vector3(x, total / (9.0f * (float)smoothing), z) * vertexScale) -(Vector3(0, height * 100, 0));
+            if (rand() % 1000 == 0)
+            {
+                rockSpots.emplace_back(vertices[offset]);
+            }
             textureCoords[offset] = Vector2(x, z) * textureScale; 
         }
     }
@@ -60,4 +66,47 @@ HeightMap::HeightMap(const  std:: string& name) {
     heightmapSize.x = vertexScale.x * (iWidth - 1); 
     heightmapSize.y = vertexScale.y * 255.0f;//each  height  is a byte!
     heightmapSize.z = vertexScale.z * (iHeight  - 1);
+}
+
+HeightMap::HeightMap(int widthx, int heightz, float height, float scale) {
+    this->scale = scale;
+    this->height = heightz;
+    numVertices = widthx * heightz;
+    numIndices = (widthx - 1) * (heightz - 1) * 6;
+    vertices = new  Vector3[numVertices];
+    textureCoords = new  Vector2[numVertices];
+    indices = new  GLuint[numIndices];
+
+    Vector3  vertexScale = Vector3(scale, heightz, scale);
+    Vector2  textureScale = Vector2((1 / 70), (1 / 70));
+
+    for (int z = 0; z < heightz; ++z) {
+        for (int x = 0; x < widthx; ++x) {
+
+            int  offset = (z * widthx) + x; 
+            vertices[offset] = (Vector3(x, 0, z) * vertexScale) - ((Vector3(widthx/4, 0, heightz/4) * vertexScale));
+            textureCoords[offset] = Vector2(x, z) * textureScale;
+        }
+    }
+    int i = 0;
+    for (int z = 0; z < heightz - 1; ++z) {
+        for (int x = 0; x < widthx - 1; ++x) {
+            int a = (z * (widthx)) + x;
+            int b = (z * (widthx)) + (x + 1);
+            int c = ((z + 1) * (widthx)) + (x + 1);
+            int d = ((z + 1) * (widthx)) + x;
+            indices[i++] = a;
+            indices[i++] = c;
+            indices[i++] = b;
+            indices[i++] = c;
+            indices[i++] = a;
+            indices[i++] = d;
+        }
+    }
+    GenerateNormals();
+    GenerateTangents();
+    BufferData();
+    heightmapSize.x = vertexScale.x * (widthx - 1);
+    heightmapSize.y = vertexScale.y * 255.0f;//each  height  is a byte!
+    heightmapSize.z = vertexScale.z * (heightz - 1);
 }

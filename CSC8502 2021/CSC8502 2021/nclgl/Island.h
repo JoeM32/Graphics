@@ -9,6 +9,9 @@ public:
 	virtual void DrawRaw(OGLRenderer& r) override;
 	HeightMap* getHeightMap() { return heightMap;  };
 	void Update(float dt) override;
+
+	
+
 protected:
 	HeightMap* heightMap;
 	Shader* shader;

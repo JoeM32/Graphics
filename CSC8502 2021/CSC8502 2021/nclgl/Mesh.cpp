@@ -96,6 +96,7 @@ void	Mesh::BufferData()	{
 	}
 
 	if (tangents) {	//Buffer tangent data
+		std::cout << "Buffering tangents";
 		UploadAttribute(&bufferObject[TANGENT_BUFFER], numVertices, sizeof(Vector4), 4, TANGENT_BUFFER, tangents, "Tangents");
 	}
 

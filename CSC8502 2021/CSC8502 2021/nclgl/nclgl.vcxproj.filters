@@ -44,6 +44,8 @@
     <ClCompile Include="PlayerCamera.cpp" />
     <ClCompile Include="CutsceneCamera.cpp" />
     <ClCompile Include="Island.cpp" />
+    <ClCompile Include="Ocean.cpp" />
+    <ClCompile Include="Rock.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
@@ -99,6 +101,8 @@
     <ClInclude Include="PlayerCamera.h" />
     <ClInclude Include="CutsceneCamera.h" />
     <ClInclude Include="Island.h" />
+    <ClInclude Include="Ocean.h" />
+    <ClInclude Include="Rock.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GLAD">

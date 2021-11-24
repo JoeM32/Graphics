@@ -63,6 +63,7 @@ public:
 	
 	static void SetTextureRepeating(GLuint target, bool state);
 	virtual GLuint GetShadowTex();
+	virtual GLuint GetSkybox();
 	virtual void SetShaderLights();
 	virtual Vector3 GetCameraPos();
 protected:

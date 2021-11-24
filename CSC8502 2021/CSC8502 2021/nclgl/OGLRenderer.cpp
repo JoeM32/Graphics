@@ -267,6 +267,11 @@ GLuint OGLRenderer::GetShadowTex()
 	return GLuint();
 }
 
+GLuint OGLRenderer::GetSkybox()
+{
+	return GLuint();
+}
+
 void OGLRenderer::SetShaderLights()
 {
 }
