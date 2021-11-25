@@ -1,2 +1,17 @@
-﻿  Mesh.cpp
+﻿  Island.cpp
+  Ocean.cpp
+  Rock.cpp
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(12,112): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(12,93): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(12,74): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(12,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(19,114): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(19,94): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(19,74): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(19,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(26,112): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(26,93): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(26,74): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\nclgl\Rock.cpp(26,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   nclgl.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\nclgl.lib

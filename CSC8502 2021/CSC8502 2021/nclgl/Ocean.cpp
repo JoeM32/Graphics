@@ -63,6 +63,7 @@ void Ocean::Draw(OGLRenderer& r)
 	glBindTexture(GL_TEXTURE_CUBE_MAP, r.GetSkybox());
 
 
+
 	glUniform3fv(glGetUniformLocation(shader->GetProgram(),
 		"cameraPos"), 1, (float*)&r.GetCameraPos());
 

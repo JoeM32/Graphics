@@ -15,7 +15,7 @@ HeightMap::HeightMap(const  std:: string& name, float height, float scale) {
     textureCoords = new  Vector2[numVertices]; 
     indices = new  GLuint[numIndices];
     Vector3  vertexScale = Vector3(scale, height, scale);
-    Vector2  textureScale = Vector2( (1/70), (1/70));
+    Vector2  textureScale = Vector2( (1/16.0f), (1 / 16.0f));
     for (int z = 0; z < iHeight; ++z) { 
         for (int x = 0; x < iWidth; ++x) { 
 
@@ -41,7 +41,7 @@ HeightMap::HeightMap(const  std:: string& name, float height, float scale) {
             {
                 rockSpots.emplace_back(vertices[offset]);
             }
-            textureCoords[offset] = Vector2(x, z) * textureScale; 
+            textureCoords[offset] = Vector2(x, z) * textureScale;
         }
     }
     SOIL_free_image_data(data);
@@ -85,7 +85,8 @@ HeightMap::HeightMap(int widthx, int heightz, float height, float scale) {
 
             int  offset = (z * widthx) + x; 
             vertices[offset] = (Vector3(x, 0, z) * vertexScale) - ((Vector3(widthx/4, 0, heightz/4) * vertexScale));
-            textureCoords[offset] = Vector2(x, z) * textureScale;
+            //textureCoords[offset] = Vector2(x, z) * textureScale;
+            textureCoords[offset] = Vector2(vertices[offset].x, vertices[offset].z);
         }
     }
     int i = 0;

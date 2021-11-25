@@ -103,11 +103,11 @@ void Island::Draw(OGLRenderer& r)
 	glBindTexture(GL_TEXTURE_2D, noise);
 	i++;
 
-	/*glUniform1i(glGetUniformLocation(shader->GetProgram(),
+	glUniform1i(glGetUniformLocation(shader->GetProgram(),
 		"shadowTex"), i);
 	glActiveTexture(GL_TEXTURE0 + i);
 	glBindTexture(GL_TEXTURE_2D, r.GetShadowTex());
-	i++;*/
+	i++;
 
 	/*glUniform1i(glGetUniformLocation(shader->GetProgram(),
 		"diffuseTex"), 0);

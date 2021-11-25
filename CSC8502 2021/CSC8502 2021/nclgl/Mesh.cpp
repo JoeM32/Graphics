@@ -558,7 +558,15 @@ bool Mesh::GetVertexIndicesForTri(unsigned int i,
 		tangents[i].w = 0.0f;
 		tangents[i].Normalise();
 		tangents[i].w = handedness;
-
+		/*tangents[i].x = 2.0f;
+		tangents[i].y = 1.0f;
+		tangents[i].z = 0.5f;
+		tangents[i].w = 0.0f;*/
+		//tangents[i].Normalise();
+		//tangents[i].w = handedness;
+		//std::cout << std::to_string(tangents[i].w);
+		//std::cout << std::to_string(tangents[i].x) << "-" << std::to_string(tangents[i].y) << "-" << std::to_string(tangents[i].z) << "\n";
+		//std::cout << std::to_string(tangents[i].z) << "\n";
 	}
 }Vector4 Mesh::GenerateTangent(int a, int b, int c) {
 	Vector3 ba = vertices[b] - vertices[a];
@@ -566,6 +574,8 @@ bool Mesh::GetVertexIndicesForTri(unsigned int i,
 
 	Vector2 tba = textureCoords[b] - textureCoords[a];
 	Vector2 tca = textureCoords[c] - textureCoords[a];
+
+	//std::cout << std::to_string(textureCoords[a].x) << "-" << std::to_string(textureCoords[a].y) << "\n";
 
 	Matrix2 texMatrix = Matrix2(tba, tca);
 	texMatrix.Invert();
@@ -584,7 +594,6 @@ bool Mesh::GetVertexIndicesForTri(unsigned int i,
 		handedness = -1.0f;
 
 	}
-
 	return Vector4(tangent.x, tangent.y, tangent.z, handedness);
 
 }

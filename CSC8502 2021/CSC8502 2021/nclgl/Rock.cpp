@@ -25,7 +25,7 @@ Rock::Rock() : SceneNode("Rock")
 		bumpTex = *AssetLoaderSingleton::loader.getTexture("T_Rock_05_N.TGA");
 		this->SetTransform(Matrix4::Rotation(rand() % 90, Vector3(rand() % 100 - 50, rand() % 100 - 50, rand() % 100 - 50)) * Matrix4::Scale(Vector3(20, 20, 20)) * Matrix4::Translation(Vector3(-12, -8, -18)));
 	}
-	boundingRadius = 100000;
+	boundingRadius = 10000;
 }
 
 Rock::~Rock()
@@ -48,6 +48,12 @@ void Rock::Draw(OGLRenderer& r)
 		"BumpTex"), i);
 	glActiveTexture(GL_TEXTURE0 + i);
 	glBindTexture(GL_TEXTURE_2D, bumpTex);
+	i++;
+
+	glUniform1i(glGetUniformLocation(shader->GetProgram(),
+		"shadowTex"), i);
+	glActiveTexture(GL_TEXTURE0 + i);
+	glBindTexture(GL_TEXTURE_2D, r.GetShadowTex());
 	i++;
 
 	mesh->Draw();

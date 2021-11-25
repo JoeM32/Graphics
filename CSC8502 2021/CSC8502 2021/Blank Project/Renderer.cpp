@@ -23,10 +23,10 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	quad = Mesh::GenerateQuad();
 	cube = AssetLoaderSingleton::loader.getMesh("OffsetCubeY.msh");
 	
-	light = new Light(Vector3(2000, 1000, 2000),
-		Vector4(1, 1, 1, 1), 2500.0f);
+	light = new Light(Vector3(500, 1000, 500),
+		Vector4(1, 1, 1, 1), 3000.0);
 
-	/*shadowShader = new Shader("shadowVert.glsl", "shadowFrag.glsl");
+	shadowShader = new Shader("shadowVert.glsl", "shadowFrag.glsl");
 
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
@@ -44,7 +44,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
 		GL_TEXTURE_2D, shadowTex, 0);
 	glDrawBuffer(GL_NONE);
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);*/
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
 	//shadows 2
@@ -74,13 +74,13 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	root->AddChild(robro);
 	Island* island = new Island();
 	//island->getHeightMap()->rockSpots;
-	for each (Vector3 var in island->getHeightMap()->rockSpots)
+	/*for each (Vector3 var in island->getHeightMap()->rockSpots)
 	{
 		SceneNode* rock = new Rock();
 		rock->SetTransform(Matrix4::Translation(var) * rock->GetTransform());
 		island->AddChild(rock);
 
-	}
+	}*/
 	root->AddChild(island);
 	
 	SceneNode* ocean = new Ocean();
@@ -269,12 +269,17 @@ void Renderer::DrawShadowScene() {
 
 	BindShader(shadowShader);
 	viewMatrix = Matrix4::BuildViewMatrix(
-		light->GetPosition(), Vector3(0, 0, 0));
-	projMatrix = Matrix4::Perspective(1, 100, 1, 45);
+		light->GetPosition(), Vector3(7000,-1000,5000));
+	projMatrix = Matrix4::Perspective(1, 4000, 1, 45);
 
-	Matrix4 lightProjection = Matrix4::Orthographic(-10.0f, 10.0f, -10.0f, 10.0f, 1, 7.5);
+	/*viewMatrix = camera->BuildViewMatrix();
+	projMatrix = Matrix4::Perspective(1.0f, 1500.0f,
+		(float)width / (float)height, 45.0f);*/
+
+	/*Matrix4 lightProjection = Matrix4::Orthographic(-10.0f, 10.0f, -10.0f, 10.0f, 1, 7.5);
 	Matrix4 lightView = Matrix4::Rotation(30, Vector3(0, 1, 0));
-	shadowMatrix = lightProjection * lightView;
+	shadowMatrix = lightProjection * lightView;*/
+
 	shadowMatrix = projMatrix * viewMatrix; // used later
 
 	UpdateShaderMatrices();
@@ -397,15 +402,13 @@ void Renderer::RenderScene() {
 	SortNodeLists();
 
 	//shadows
-	/*glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	DrawShadowScene();
 	viewMatrix = camera->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f);
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);*/
 
-	//deferred
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+
 	FillBuffers();
 	DrawPointLights();
 	CombineBuffers();
@@ -423,7 +426,7 @@ void Renderer::RenderScene() {
 void Renderer::FillBuffers() {
 	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-
+	DrawSkybox();
 	/*BindShader(sceneShader);
 	glUniform1i(
 		glGetUniformLocation(sceneShader->GetProgram(), "diffuseTex"), 0);
