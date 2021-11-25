@@ -24,7 +24,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	cube = AssetLoaderSingleton::loader.getMesh("OffsetCubeY.msh");
 	
 	light = new Light(Vector3(500, 1000, 500),
-		Vector4(1, 1, 1, 1), 6000);
+		Vector4(1, 1, 1, 1), 2700);
 
 	shadowShader = new Shader("shadowVert.glsl", "shadowFrag.glsl");
 
@@ -119,11 +119,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	combineShader = new Shader("combinevert.glsl",
 		"combinefrag.glsl");
 
-	if (!sceneShader->LoadSuccess() || !pointlightShader->LoadSuccess() ||
-		!combineShader->LoadSuccess()) {
-		return;
 
-	}
 
 
 
@@ -139,11 +135,6 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	SetTextureRepeating(earthTex, true);
 	SetTextureRepeating(earthBump, true);
 
-	if (!pointlightShader->LoadSuccess() ||
-		!combineShader->LoadSuccess()) {
-		return;
-
-	}
 	glGenFramebuffers(1, &bufferFBO);
 	glGenFramebuffers(1, &pointLightFBO);
 
@@ -324,6 +315,7 @@ void Renderer::UpdateScene(float dt) {
 	//light->SetPosition(camera->GetPosition());
 	//Light& l = pointLights[0];
 	//l.SetPosition(camera->GetPosition() - Vector3(0,250,0));
+	//light->SetRadius(camera->GetPosition().y);
 	root->Update(dt);
 }
 

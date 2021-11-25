@@ -63,7 +63,8 @@ void main ( void ) {
 	float lambert = max ( dot ( incident , normal ) , 0.0f );
 	float distance = length ( lightPos - IN . worldPos );
 	float attenuation = 1.0f - clamp ( distance / lightRadius , 0.0 , 1.0);
-
+	//distance = clamp(distance / lightRadius , 0.0001, 1000000);
+	//float attenuation = 1.0 / (1.0 + 0.1*distance + 0.01*distance*distance);
 	float specFactor = clamp ( dot ( halfDir , normal ) ,0.0 ,1.0);
 	specFactor = pow ( specFactor , 60.0 );
 	float shadow = 1.0; // New !

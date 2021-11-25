@@ -25,7 +25,7 @@ Rock::Rock() : SceneNode("Rock")
 		bumpTex = *AssetLoaderSingleton::loader.getTexture("T_Rock_05_N.TGA");
 		this->SetTransform(Matrix4::Rotation(rand() % 90, Vector3(rand() % 100 - 50, rand() % 100 - 50, rand() % 100 - 50)) * Matrix4::Scale(Vector3(20, 20, 20)) * Matrix4::Translation(Vector3(-12, -8, -18)));
 	}
-	boundingRadius = 10000;
+	boundingRadius = 5000;
 }
 
 Rock::~Rock()
