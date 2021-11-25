@@ -1,4 +1,5 @@
 #include "CutsceneCamera.h"
+#include "Window.h"
 #include <string>
 
 
@@ -19,6 +20,10 @@ Vector3 Lerp(Vector3 a, Vector3 b, float t)
 
 void CutsceneCamera::UpdateCamera(float dt)
 {
+	if (Window::GetKeyboard()->KeyDown(KEYBOARD_SPACE)) {
+		paused = !paused;
+
+	}
 	if (!paused)
 	{
 		timer += dt;

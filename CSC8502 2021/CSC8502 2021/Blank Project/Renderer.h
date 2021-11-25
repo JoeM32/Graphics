@@ -40,7 +40,7 @@ protected:
 	GLuint bufferDepthTex;
 	GLuint pointLightFBO;
 	GLuint lightDiffuseTex;
-	GLuint lightSpecularTex;
+	GLuint lightSpecularTex;	GLuint bufferFBO2;	GLuint bufferColourTex2;
 	Light* pointLights; // Array of lighting data
 	Mesh* sphere; // Light volume
 	GLuint earthBump;
@@ -48,7 +48,7 @@ protected:
 
 
 
-	void BuildNodeLists(SceneNode* from);
+	void BuildNodeLists(SceneNode* from,int camera);
 	void SortNodeLists();
 	void ClearNodeLists();
 	void DrawNodes();
@@ -63,7 +63,8 @@ protected:
 	Shader* shadowShader;
 
 	SceneNode* root;
-	PlayerCamera* camera;
+	Camera* mainCamera[2];
+	int currentCamera = 0;//not a fan of this solution, but the shaders are epxtcing to reach in and just grab the one camera.
 	Mesh* quad;
 	Mesh* cube;
 	Shader* shader;
@@ -71,7 +72,7 @@ protected:
 
 	Light* light;
 
-	Frustum frameFrustum;
+	Frustum frameFrustum[2];
 
 	vector < SceneNode* > transparentNodeList;
 	vector < SceneNode* > nodeList;

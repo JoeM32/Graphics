@@ -16,7 +16,8 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	AssetLoaderSingleton::loader.SetFiltering(true);
 
 
-	camera = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
+	mainCamera[0] = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
+	mainCamera[1] = new Camera(-90, 0.0f, (Vector3(0, 100, 750.0f)));
 	//camera = new CutsceneCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)), 5);
 	//camera->AddShot({ 0.0f, 0.0f, (Vector3(0, 5, 250.0f)), 5 });
 	//camera->Play();
@@ -196,7 +197,24 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	//second camera
 
+	glGenFramebuffers(1, &bufferFBO2);
+
+	glGenTextures(1, &bufferColourTex2);
+	glBindTexture(GL_TEXTURE_2D, bufferColourTex2);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, width, 0,
+		GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO2);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+		GL_TEXTURE_2D, bufferColourTex2, 0);
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
 	init = true;
@@ -241,7 +259,8 @@ void Renderer::GenerateScreenTexture(GLuint& into, bool depth) {
 Renderer ::~Renderer(void) {
 	delete root;
 	delete quad;
-	delete camera;
+	delete mainCamera[0];
+	delete mainCamera[1];
 	AssetLoaderSingleton::loader.Unload();
 	glDeleteTextures(1, &shadowTex);
 	glDeleteFramebuffers(1, &shadowFBO);
@@ -309,20 +328,31 @@ void Renderer::DrawShadowScene() {
 }*/
 
 void Renderer::UpdateScene(float dt) {
-	camera->UpdateCamera(dt);
-	viewMatrix = camera->BuildViewMatrix();
-	frameFrustum.FromMatrix(projMatrix * viewMatrix);
+	mainCamera[0]->UpdateCamera(dt);
+	viewMatrix = mainCamera[0]->BuildViewMatrix();
+	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
+		(float)width / (float)height, 45.0f);
+	frameFrustum[0].FromMatrix(projMatrix * viewMatrix);
+
+	mainCamera[1]->UpdateCamera(dt);
+	mainCamera[1]->SetPosition(mainCamera[0]->GetPosition() + Vector3(0, 5000, 0));
+	viewMatrix = mainCamera[1]->BuildViewMatrix();
+	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
+		1, 10.0);
+	frameFrustum[1].FromMatrix(projMatrix * viewMatrix);
+
 	//light->SetPosition(camera->GetPosition());
 	//Light& l = pointLights[0];
 	//l.SetPosition(camera->GetPosition() - Vector3(0,250,0));
 	//light->SetRadius(camera->GetPosition().y);
+
 	root->Update(dt);
 }
 
-void Renderer::BuildNodeLists(SceneNode* from) {
-	if (frameFrustum.InsideFrustum(*from)) {
+void Renderer::BuildNodeLists(SceneNode* from, int camera) {
+	if (frameFrustum[camera].InsideFrustum(*from)) {
 		Vector3 dir = from->GetWorldTransform().GetPositionVector() -
-			camera->GetPosition();
+			mainCamera[camera]->GetPosition();
 		from->SetCameraDistance(Vector3::Dot(dir, dir));
 
 		if (from->GetColour().w < 1.0f) {
@@ -339,7 +369,7 @@ void Renderer::BuildNodeLists(SceneNode* from) {
 	for (vector < SceneNode* >::const_iterator i =
 		from->GetChildIteratorStart();
 		i != from->GetChildIteratorEnd(); ++i) {
-		BuildNodeLists((*i));
+		BuildNodeLists(*i, camera);
 
 	}
 
@@ -390,19 +420,28 @@ void Renderer::DrawNodeRaw(SceneNode* n) {
 
 void Renderer::RenderScene() {
 
-	BuildNodeLists(root);
+	currentCamera = 0;
+	BuildNodeLists(root,currentCamera);
 	SortNodeLists();
 
 	//shadows
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	DrawShadowScene();
-	viewMatrix = camera->BuildViewMatrix();
+	viewMatrix = mainCamera[currentCamera]->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f);
 
-
 	FillBuffers();
 	DrawPointLights();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO2);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	currentCamera = 1;
+	viewMatrix = mainCamera[currentCamera]->BuildViewMatrix();
+	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
+		1, 10);
+	DrawNodes();
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	CombineBuffers();
 
 	/*glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
@@ -432,7 +471,7 @@ void Renderer::FillBuffers() {
 	glBindTexture(GL_TEXTURE_2D, earthBump);*/
 
 	modelMatrix.ToIdentity();
-	viewMatrix = camera->BuildViewMatrix();
+	viewMatrix = mainCamera[currentCamera]->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 10000.0f,
 		(float)width / (float)height, 45.0f);
 
@@ -466,7 +505,7 @@ void Renderer::DrawPointLights() {
 	glBindTexture(GL_TEXTURE_2D, bufferNormalTex);
 
 	glUniform3fv(glGetUniformLocation(pointlightShader->GetProgram(),
-		"cameraPos"), 1, (float*)&camera->GetPosition());
+		"cameraPos"), 1, (float*)&mainCamera[currentCamera]->GetPosition());
 
 	glUniform2f(glGetUniformLocation(pointlightShader->GetProgram(),
 		"pixelSize"), 1.0f / width, 1.0f / height);
@@ -518,9 +557,12 @@ void Renderer::CombineBuffers() {
 	glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, lightSpecularTex);
 
+
 	quad->Draw();
 
 }
+
+
 
 
 GLuint Renderer::GetShadowTex()
@@ -541,7 +583,7 @@ void Renderer::SetShaderLights()
 
 Vector3 Renderer::GetCameraPos()
 {
-	return camera->GetPosition();
+	return mainCamera[currentCamera]->GetPosition();
 }
 
 void Renderer::ClearNodeLists() {
