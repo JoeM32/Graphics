@@ -34,7 +34,7 @@ void main ( void ) {
 	vec3 bumpNormal = texture ( BumpTex , IN.texCoord ).rgb;
 
 	vec3 normal = normalize ( TBN * bumpNormal * 2.0 - 1.0);
-	float lambert = max ( dot ( incident , bumpNormal ) , 0.0f );
+	float lambert = max ( dot ( incident , normal ) , 0.0f );
 	float distance = length ( lightPos - IN . worldPos );
 	float attenuation = 1.0f - clamp ( distance / lightRadius , 0.0 , 1.0);
 

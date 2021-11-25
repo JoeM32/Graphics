@@ -38,7 +38,7 @@ void main ( void ) {
 	normalize ( IN . binormal ) , normalize ( IN . normal ));
 	
 	vec3 normal = normalize ( TBN * bumpNormal * 2.0 - 1.0);
-	float lambert = max ( dot ( incident , bumpNormal ) , 0.0f );
+	float lambert = max ( dot ( incident , normal ) , 0.0f );
 	float distance = length ( lightPos - IN . worldPos );
 	float attenuation = 1.0f - clamp ( distance / lightRadius , 0.0 , 1.0);
 
@@ -68,6 +68,6 @@ void main ( void ) {
 	diffuse = reflectTex + ( diffuse * 0.25f );
 	diffuse . a = 0.75 ;
 	fragColour[0] = diffuse;
-	fragColour [1] = vec4 ( normal . xyz * 0.5 + 0.5 ,1.0);
+	fragColour [1] = vec4 ( IN.normal . xyz * 0.5 + 0.5 ,1.0);
 
 }

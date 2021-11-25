@@ -60,7 +60,7 @@ void main ( void ) {
 	vec4 tex = (diffusex * blending.x) + (diffusey * blending.y) + (diffusez * blending.z);
 
 	vec3 normal = normalize ( TBN * bumpNormal * 2.0 - 1.0);
-	float lambert = max ( dot ( incident , bumpNormal ) , 0.0f );
+	float lambert = max ( dot ( incident , normal ) , 0.0f );
 	float distance = length ( lightPos - IN . worldPos );
 	float attenuation = 1.0f - clamp ( distance / lightRadius , 0.0 , 1.0);
 
@@ -84,8 +84,10 @@ void main ( void ) {
 	diffuse . rgb *= shadow ; // shadowing factor
 	diffuse . rgb += surface * 0.1f ; // ambient
 	diffuse . a = diffuse . a ; // alpha
+	//vec3 shadowcol = vec3(1,1,1) * shadow;
+	diffuse . rgb = mix (vec3(0,0,0) ,diffuse . rgb,shadow) ; 
 	fragColour[0].a = 1;
 	fragColour[0].rgb = diffuse.rgb;
-	//fragColour[0].rgb = IN.tangent.rgb;
-	fragColour [1] = vec4 ( normal . xyz * 0.5 + 0.5 ,1.0);
+	fragColour [1] = vec4 ( IN.normal . xyz * 0.5 + 0.5 ,1.0);
+
 }

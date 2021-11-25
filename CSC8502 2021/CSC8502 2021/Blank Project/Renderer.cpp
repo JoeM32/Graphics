@@ -24,7 +24,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	cube = AssetLoaderSingleton::loader.getMesh("OffsetCubeY.msh");
 	
 	light = new Light(Vector3(500, 1000, 500),
-		Vector4(1, 1, 1, 1), 3000.0);
+		Vector4(1, 1, 1, 1), 6000);
 
 	shadowShader = new Shader("shadowVert.glsl", "shadowFrag.glsl");
 
@@ -74,13 +74,13 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	root->AddChild(robro);
 	Island* island = new Island();
 	//island->getHeightMap()->rockSpots;
-	/*for each (Vector3 var in island->getHeightMap()->rockSpots)
+	for each (Vector3 var in island->getHeightMap()->rockSpots)
 	{
 		SceneNode* rock = new Rock();
 		rock->SetTransform(Matrix4::Translation(var) * rock->GetTransform());
 		island->AddChild(rock);
 
-	}*/
+	}
 	root->AddChild(island);
 	
 	SceneNode* ocean = new Ocean();
@@ -270,7 +270,7 @@ void Renderer::DrawShadowScene() {
 	BindShader(shadowShader);
 	viewMatrix = Matrix4::BuildViewMatrix(
 		light->GetPosition(), Vector3(7000,-1000,5000));
-	projMatrix = Matrix4::Perspective(1, 4000, 1, 45);
+	projMatrix = Matrix4::Perspective(1, 6000, 1, 45);
 
 	/*viewMatrix = camera->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 1500.0f,
@@ -413,8 +413,8 @@ void Renderer::RenderScene() {
 	DrawPointLights();
 	CombineBuffers();
 
-	
-	/*DrawSkybox();
+	/*glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	DrawSkybox();
 	viewMatrix = camera->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		(float)width / (float)height, 45.0f); 
