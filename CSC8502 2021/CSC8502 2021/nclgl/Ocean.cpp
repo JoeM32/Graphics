@@ -35,7 +35,7 @@ Ocean::Ocean() : SceneNode("Ocean")
 	OGLRenderer::SetTextureRepeating(OceanBumpTex, true);
 
 	SetBoundingRadius(dimensions.Length());
-
+	colour = Vector4(0, 0, 1, 0.5);
 
 }
 

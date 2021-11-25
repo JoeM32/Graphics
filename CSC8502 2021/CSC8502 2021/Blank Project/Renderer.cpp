@@ -207,7 +207,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, width, 0,
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 300, 300, 0,
 		GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO2);
@@ -338,7 +338,7 @@ void Renderer::UpdateScene(float dt) {
 	mainCamera[1]->SetPosition(mainCamera[0]->GetPosition() + Vector3(0, 5000, 0));
 	viewMatrix = mainCamera[1]->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
-		1, 10.0);
+		1, 20.0);
 	frameFrustum[1].FromMatrix(projMatrix * viewMatrix);
 
 	//light->SetPosition(camera->GetPosition());
@@ -439,7 +439,7 @@ void Renderer::RenderScene() {
 	currentCamera = 1;
 	viewMatrix = mainCamera[currentCamera]->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
-		1, 10);
+		1, 20);
 	DrawNodes();
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	CombineBuffers();
@@ -556,6 +556,17 @@ void Renderer::CombineBuffers() {
 		combineShader->GetProgram(), "specularLight"), 2);
 	glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, lightSpecularTex);
+
+	glUniform1i(glGetUniformLocation(
+		combineShader->GetProgram(), "miniMap"), 3);
+	glActiveTexture(GL_TEXTURE3);
+	glBindTexture(GL_TEXTURE_2D, bufferColourTex2);
+
+	glUniform1f(glGetUniformLocation(
+		combineShader->GetProgram(), "height"), (float)height);
+
+	glUniform1f(glGetUniformLocation(
+		combineShader->GetProgram(), "width"), (float)width);
 
 
 	quad->Draw();
