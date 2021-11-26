@@ -16,7 +16,17 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	AssetLoaderSingleton::loader.SetFiltering(true);
 
 
-	mainCamera[0] = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)));
+	//mainCamera[0] = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f))); //change to controllable camera
+	auto cutscene = new CutsceneCamera(5.7f, 241, (Vector3(-375, 100, 437.5)), 10);
+	cutscene->AddShot({ 210, -10, Vector3(964, 767, -46), 10 });
+	cutscene->AddShot({ 184, 4.96, Vector3(1966, 383, 441), 10 });
+	cutscene->AddShot({ 129, -35.1, Vector3(3548, 1734, 994), 10 });
+	cutscene->AddShot({ 90.9, -64.6, Vector3(3397, 2718, 2202), 10 });
+	cutscene->AddShot({ 5.3, 10.3, Vector3(1982, 150, 4255), 10 });
+	cutscene->AddShot({ 261, -21, Vector3(-190, 951, 1492), 10 });
+	cutscene->AddShot({ 181, -28, Vector3(2002, 1350, -271), 10 });
+	cutscene->Play();
+	mainCamera[0] = cutscene;
 	mainCamera[1] = new Camera(-90, 0.0f, (Vector3(0, 100, 750.0f)));
 	//camera = new CutsceneCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)), 5);
 	//camera->AddShot({ 0.0f, 0.0f, (Vector3(0, 5, 250.0f)), 5 });
@@ -27,7 +37,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	light = new Light(Vector3(500, 1000, 500),
 		Vector4(1, 1, 1, 1), 2700);
 
-	shadowShader = new Shader("shadowVert.glsl", "shadowFrag.glsl");
+	shadowShader = AssetLoaderSingleton::loader.getShader("shadowVert.glsl", "shadowFrag.glsl");
 
 	glGenTextures(1, &shadowTex);
 	glBindTexture(GL_TEXTURE_2D, shadowTex);
@@ -69,10 +79,10 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	root = new SceneNode("root");
 
-	SceneNode* robro = new CubeRobot(cube);
+	//SceneNode* robro = new CubeRobot(cube);
 
 
-	root->AddChild(robro);
+	//root->AddChild(robro);
 	Island* island = new Island();
 	//island->getHeightMap()->rockSpots;
 	for each (Vector3 var in island->getHeightMap()->rockSpots)
@@ -95,46 +105,30 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	//deferred
-	sphere = Mesh::LoadFromMeshFile("Sphere.msh");
+	sphere = AssetLoaderSingleton::loader.getMesh("Sphere.msh");
 
 	pointLights = new Light[LIGHT_NUM];
 
 	for (int i = 0; i < LIGHT_NUM; ++i) {
 		Light& l = pointLights[i];
-		l.SetPosition(Vector3(rand() % (int)4000,
+		/*l.SetPosition(Vector3(rand() % (int)4000,
 			rand() % (int)400,
-			rand() % (int)4000));
+			rand() % (int)4000));*/
 
-		l.SetColour(Vector4(0.5f + (float)(rand() / (float)RAND_MAX),
-			0.5f + (float)(rand() / (float)RAND_MAX),
-			0.5f + (float)(rand() / (float)RAND_MAX),
+		l.SetPosition(island->getHeightMap()->rockSpots.at(rand() % (island->getHeightMap()->rockSpots.size() - 1)) + Vector3(0,20,0));
+		l.SetColour(Vector4(0.05,1,0.1,
 			1));
 		l.SetRadius(250.0f + (rand() % 250));
 
 	}
 
-	sceneShader = new Shader("BumpVertex.glsl", // reused !
+	sceneShader = AssetLoaderSingleton::loader.getShader("BumpVertex.glsl", // reused !
 		"bufferFragment.glsl");
-	pointlightShader = new Shader("pointlightvert.glsl",
+	pointlightShader = AssetLoaderSingleton::loader.getShader("pointlightvert.glsl",
 		"pointlightfrag.glsl");
-	combineShader = new Shader("combinevert.glsl",
+	combineShader = AssetLoaderSingleton::loader.getShader("combinevert.glsl",
 		"combinefrag.glsl");
 
-
-
-
-
-	earthTex = SOIL_load_OGL_texture(
-		TEXTUREDIR"Barren Reds.jpg", SOIL_LOAD_AUTO,
-		SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
-
-
-	earthBump = SOIL_load_OGL_texture(
-		TEXTUREDIR"Barren RedsDOT3.jpg", SOIL_LOAD_AUTO,
-		SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
-
-	SetTextureRepeating(earthTex, true);
-	SetTextureRepeating(earthBump, true);
 
 	glGenFramebuffers(1, &bufferFBO);
 	glGenFramebuffers(1, &pointLightFBO);
@@ -186,7 +180,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	if (!skybox) {
 		std::cout << "Skybox FAILED";
 	}
-	skyboxShader = new Shader(
+	skyboxShader = AssetLoaderSingleton::loader.getShader(
 		"skyboxVertex.glsl", "skyboxFragment.glsl");
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 
@@ -264,7 +258,16 @@ Renderer ::~Renderer(void) {
 	AssetLoaderSingleton::loader.Unload();
 	glDeleteTextures(1, &shadowTex);
 	glDeleteFramebuffers(1, &shadowFBO);
-
+	glDeleteFramebuffers(1, &bufferFBO);
+	glDeleteFramebuffers(1, &bufferFBO2);
+	glDeleteTextures(1, &bufferColourTex);
+	glDeleteTextures(1, &bufferColourTex2);
+	glDeleteTextures(1, &bufferNormalTex);
+	glDeleteTextures(1, &bufferDepthTex);
+	glDeleteFramebuffers(1, &pointLightFBO);
+	glDeleteTextures(1, &lightDiffuseTex);
+	glDeleteTextures(1, &lightSpecularTex);
+	delete[] pointLights;
 }
 
 void Renderer::DrawShadowScene() {

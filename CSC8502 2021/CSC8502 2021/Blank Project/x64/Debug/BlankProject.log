@@ -1,5 +1,7 @@
 ﻿  Renderer.cpp
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(106,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(105,11): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(104,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(22,62): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(23,64): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(24,66): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(25,63): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(120,5): warning C4305: 'argument': truncation from 'double' to 'float'
   BlankProject.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Blank Project.exe

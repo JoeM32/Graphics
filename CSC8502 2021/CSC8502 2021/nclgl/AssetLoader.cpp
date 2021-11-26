@@ -69,7 +69,10 @@ void AssetLoader::Unload()
 	{
 		delete pair.second;
 	}
-	//glDeleteTextures(1, &texture);
+	for each (auto pair in textures)
+	{
+		glDeleteTextures(1, &pair.second);
+	}
 	meshes = {};
 	shaders = {};
 	textures = {};

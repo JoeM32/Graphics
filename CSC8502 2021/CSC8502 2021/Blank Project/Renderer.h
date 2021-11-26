@@ -76,5 +76,4 @@ protected:
 
 	vector < SceneNode* > transparentNodeList;
 	vector < SceneNode* > nodeList;
-		GLuint depthMapFBO;
-	GLuint depthMap;	GLuint skybox;	void DrawSkybox();	Shader* skyboxShader;};
+		GLuint skybox;	void DrawSkybox();	Shader* skyboxShader;};

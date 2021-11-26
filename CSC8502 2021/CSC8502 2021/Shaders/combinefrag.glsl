@@ -19,7 +19,7 @@ vec3 map = texture ( miniMap , vec2(IN . texCoord.x / (300/width + 50/width),IN 
 
 float zone = 0;
 
-fragColour . xyz = diffuse * 0.2; // ambient
+fragColour . xyz = diffuse * 0.5; // ambient
 fragColour . xyz += diffuse * light ; // lambert
 fragColour . xyz += specular / 2; // Specular
 fragColour . xyz += light / 2 ; // Specular
