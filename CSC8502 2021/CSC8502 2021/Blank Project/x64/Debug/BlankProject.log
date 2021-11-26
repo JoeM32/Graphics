@@ -3,5 +3,5 @@ C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project
 C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(23,64): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(24,66): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(25,63): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(120,5): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\Blank Project\Renderer.cpp(96,5): warning C4305: 'argument': truncation from 'double' to 'float'
   BlankProject.vcxproj -> C:\Users\joemi\Documents\GitHub\Graphics\CSC8502 2021\CSC8502 2021\x64\Debug\Blank Project.exe

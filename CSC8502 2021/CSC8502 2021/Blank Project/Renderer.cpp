@@ -16,7 +16,7 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	AssetLoaderSingleton::loader.SetFiltering(true);
 
 
-	//mainCamera[0] = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f))); //change to controllable camera
+	
 	auto cutscene = new CutsceneCamera(5.7f, 241, (Vector3(-375, 100, 437.5)), 10);
 	cutscene->AddShot({ 210, -10, Vector3(964, 767, -46), 10 });
 	cutscene->AddShot({ 184, 4.96, Vector3(1966, 383, 441), 10 });
@@ -27,10 +27,8 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	cutscene->AddShot({ 181, -28, Vector3(2002, 1350, -271), 10 });
 	cutscene->Play();
 	mainCamera[0] = cutscene;
+	//mainCamera[0] = new PlayerCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f))); //change to controllable camera
 	mainCamera[1] = new Camera(-90, 0.0f, (Vector3(0, 100, 750.0f)));
-	//camera = new CutsceneCamera(0.0f, 0.0f, (Vector3(0, 100, 750.0f)), 5);
-	//camera->AddShot({ 0.0f, 0.0f, (Vector3(0, 5, 250.0f)), 5 });
-	//camera->Play();
 	quad = Mesh::GenerateQuad();
 	cube = AssetLoaderSingleton::loader.getMesh("OffsetCubeY.msh");
 	
@@ -58,25 +56,6 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
-	//shadows 2
-
-	/*glGenFramebuffers(1, &depthMapFBO);
-
-	glGenTextures(1, &depthMap);
-	glBindTexture(GL_TEXTURE_2D, depthMap);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
-		SHADOWSIZE, SHADOWSIZE, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
-	glDrawBuffer(GL_NONE);
-	glReadBuffer(GL_NONE);
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);*/
-
 	root = new SceneNode("root");
 
 	//SceneNode* robro = new CubeRobot(cube);
@@ -100,9 +79,6 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 	projMatrix = Matrix4::Perspective(1.0f, 10000.0f,
 		(float)width / (float)height, 45.0f);
 
-	//glEnable(GL_DEPTH_TEST);
-	//glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	//deferred
 	sphere = AssetLoaderSingleton::loader.getMesh("Sphere.msh");
@@ -197,16 +173,28 @@ Renderer::Renderer(Window& parent) : OGLRenderer(parent) {
 
 	glGenTextures(1, &bufferColourTex2);
 	glBindTexture(GL_TEXTURE_2D, bufferColourTex2);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 300, 300, 0,
 		GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
+	glGenTextures(1, &bufferDepthTex2);
+	glBindTexture(GL_TEXTURE_2D, bufferDepthTex2);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, 300, 300, 0,
+		GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, NULL);
+
 	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO2);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
 		GL_TEXTURE_2D, bufferColourTex2, 0);
+
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
+		GL_TEXTURE_2D, bufferDepthTex2, 0);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
@@ -285,13 +273,6 @@ void Renderer::DrawShadowScene() {
 		light->GetPosition(), Vector3(7000,-1000,5000));
 	projMatrix = Matrix4::Perspective(1, 6000, 1, 45);
 
-	/*viewMatrix = camera->BuildViewMatrix();
-	projMatrix = Matrix4::Perspective(1.0f, 1500.0f,
-		(float)width / (float)height, 45.0f);*/
-
-	/*Matrix4 lightProjection = Matrix4::Orthographic(-10.0f, 10.0f, -10.0f, 10.0f, 1, 7.5);
-	Matrix4 lightView = Matrix4::Rotation(30, Vector3(0, 1, 0));
-	shadowMatrix = lightProjection * lightView;*/
 
 	shadowMatrix = projMatrix * viewMatrix; // used later
 
@@ -304,32 +285,6 @@ void Renderer::DrawShadowScene() {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-/*void Renderer::DrawShadowScene() {
-	glViewport(0, 0, SHADOWSIZE, SHADOWSIZE);
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-	glClear(GL_DEPTH_BUFFER_BIT);
-
-	float near_plane = 1.0f, far_plane = 7.5f;
-	Matrix4 lightProjection = Matrix4::Orthographic(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
-	Matrix4 lightView = Matrix4::Rotation(30, Vector3(0, 1, 0));
-	shadowMatrix = lightProjection * lightView;
-	UpdateShaderMatrices();
-	BindShader(shadowShader);
-	//set shader
-	//put in shadoMatrix
-	DrawNodesRaw();
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	// 2. then render scene as normal with shadow mapping (using depth map)
-	glViewport(0, 0, width, height);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	viewMatrix = camera->BuildViewMatrix();
-	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
-		(float)width / (float)height, 45.0f);
-
-	DrawNodes();
-}*/
-
 void Renderer::UpdateScene(float dt) {
 	mainCamera[0]->UpdateCamera(dt);
 	viewMatrix = mainCamera[0]->BuildViewMatrix();
@@ -339,6 +294,7 @@ void Renderer::UpdateScene(float dt) {
 
 	mainCamera[1]->UpdateCamera(dt);
 	mainCamera[1]->SetPosition(mainCamera[0]->GetPosition() + Vector3(0, 5000, 0));
+	mainCamera[1]->SetYaw(mainCamera[0]->GetYaw());
 	viewMatrix = mainCamera[1]->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		1, 20.0);
@@ -360,7 +316,7 @@ void Renderer::BuildNodeLists(SceneNode* from, int camera) {
 
 		if (from->GetColour().w < 1.0f) {
 			transparentNodeList.push_back(from);
-
+			//std::cout << from->GetName();
 		}
 		else {
 			nodeList.push_back(from);
@@ -389,15 +345,16 @@ void Renderer::SortNodeLists() {
 }
 
 void Renderer::DrawNodes() {
+	//std::cout << "Starting for camera " << std::to_string(currentCamera) << "\n";
 	for (const auto& i : nodeList) {
 		DrawNode(i);
-
+		//std::cout << i->GetName() << "\n";
 	}
 	for (const auto& i : transparentNodeList) {
 		DrawNode(i);
 
 	}
-
+	//std::cout << "Nodes drawn" << "\n";
 }
 
 void Renderer::DrawNodesRaw() {
@@ -437,22 +394,22 @@ void Renderer::RenderScene() {
 	FillBuffers();
 	DrawPointLights();
 
+	ClearNodeLists();
 	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO2);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	glViewport(0, 0, 300, 300);
 	currentCamera = 1;
 	viewMatrix = mainCamera[currentCamera]->BuildViewMatrix();
 	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
 		1, 20);
+	UpdateShaderMatrices();
+	BuildNodeLists(root, currentCamera);
+	SortNodeLists();
 	DrawNodes();
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glViewport(0, 0, width, height);
 	CombineBuffers();
 
-	/*glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	DrawSkybox();
-	viewMatrix = camera->BuildViewMatrix();
-	projMatrix = Matrix4::Perspective(1.0f, 15000.0f,
-		(float)width / (float)height, 45.0f); 
-	DrawNodes();*/
 	ClearNodeLists();
 
 }
@@ -461,17 +418,6 @@ void Renderer::FillBuffers() {
 	glBindFramebuffer(GL_FRAMEBUFFER, bufferFBO);
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	DrawSkybox();
-	/*BindShader(sceneShader);
-	glUniform1i(
-		glGetUniformLocation(sceneShader->GetProgram(), "diffuseTex"), 0);
-	glUniform1i(
-		glGetUniformLocation(sceneShader->GetProgram(), "bumpTex"), 1);
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, earthTex);
-
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, earthBump);*/
 
 	modelMatrix.ToIdentity();
 	viewMatrix = mainCamera[currentCamera]->BuildViewMatrix();

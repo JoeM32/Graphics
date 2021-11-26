@@ -40,7 +40,8 @@ protected:
 	GLuint bufferDepthTex;
 	GLuint pointLightFBO;
 	GLuint lightDiffuseTex;
-	GLuint lightSpecularTex;	GLuint bufferFBO2;	GLuint bufferColourTex2;
+	GLuint lightSpecularTex;	GLuint bufferFBO2;	GLuint bufferColourTex2;	GLuint bufferDepthTex2;
+
 	Light* pointLights; // Array of lighting data
 	Mesh* sphere; // Light volume
 	GLuint earthBump;
